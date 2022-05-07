@@ -9,6 +9,7 @@ class PhoneBook {
     PhoneBook(void);
     ~PhoneBook(void);
     Contact contacts[8];
+    int     numContacts;
 };
 
 #endif  // MODULE_00_EX01_INCLUDES_PHONEBOOK_HPP_

@@ -3,6 +3,7 @@
 #include "../includes/headers.hpp"
 
 PhoneBook::PhoneBook(void) {
+    this->numContacts = 0;
 }
 
 PhoneBook::~PhoneBook(void) {

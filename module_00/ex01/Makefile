@@ -9,7 +9,7 @@ TESTS_DIR = ./tests/
 TESTS_BUILD_DIR = ./tests/build/
 CC = clang++
 VPATH = ./src/
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -g -Wall -Wextra -Werror -std=c++98
 MAKEFLAGS = --no-print-directory
 
 all: $(NAME)
