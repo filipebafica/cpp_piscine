@@ -2,8 +2,6 @@
 
 #include "../includes/headers.hpp"
 
-
-
 void searchContact(PhoneBook *phoneBook) {
     (void)phoneBook;
 }
@@ -41,14 +39,13 @@ void loop_parser(void) {
 
     while (1) {
         std::cout << "Select: ADD, SEARCH or EXIT" << std::endl;
-        std::cin >> userOption;
+         std::getline(std::cin, userOption);
         if (userOption == "ADD")
             addContact(&phoneBook);
         else if (userOption == "SEARCH")
             searchContact(&phoneBook);
         else if (userOption == "EXIT")
             break;
-        std::cin.ignore(INT_MAX, '\n');
     }
 }
 
