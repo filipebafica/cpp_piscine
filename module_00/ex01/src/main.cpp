@@ -3,7 +3,16 @@
 #include "../includes/headers.hpp"
 
 void searchContact(PhoneBook *phoneBook) {
-    (void)phoneBook;
+    Contact contac;
+
+    for (int i = 0; i < phoneBook->numContacts; i++) {
+        contac = phoneBook->contacts[i];
+        std::cout << contac.getFirstName() << std::endl;
+        std::cout << contac.getLastName() << std::endl;
+        std::cout << contac.getNickName() << std::endl;
+        std::cout << contac.getPhoneNumber() << std::endl;
+        std::cout << contac.getDarkestSecret() << std::endl;
+    }
 }
 
 std::string getUserInput(std::string field) {
@@ -22,15 +31,15 @@ std::string getUserInput(std::string field) {
 void addContact(PhoneBook *phoneBook) {
     int index;
 
-    if (phoneBook->numContacts == 7) {
+    if (phoneBook->numContacts == 7)
         phoneBook->numContacts = 0;
-    }
     index = phoneBook->numContacts;
     phoneBook->contacts[index].setFirstName(getUserInput("First Name"));
     phoneBook->contacts[index].setLastName(getUserInput("Last Name"));
     phoneBook->contacts[index].setNickName(getUserInput("Nick Name"));
     phoneBook->contacts[index].setPhoneNumber(getUserInput("Phone Number"));
     phoneBook->contacts[index].setDarkestSecret(getUserInput("Darkest Secret"));
+    phoneBook->numContacts++;
 }
 
 void loop_parser(void) {
@@ -39,7 +48,7 @@ void loop_parser(void) {
 
     while (1) {
         std::cout << "Select: ADD, SEARCH or EXIT" << std::endl;
-         std::getline(std::cin, userOption);
+        std::getline(std::cin, userOption);
         if (userOption == "ADD")
             addContact(&phoneBook);
         else if (userOption == "SEARCH")
