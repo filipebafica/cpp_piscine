@@ -1,6 +1,6 @@
 /* Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License. */
-#ifndef MODULE_00_EX01_INCLUDES_PHONEBOOK_HPP_
-#define MODULE_00_EX01_INCLUDES_PHONEBOOK_HPP_
+#ifndef EX01_INCLUDES_PHONEBOOK_HPP_
+#define EX01_INCLUDES_PHONEBOOK_HPP_
 
 #include "./Contact.hpp"
 
@@ -12,4 +12,4 @@ class PhoneBook {
     int     numContacts;
 };
 
-#endif  // MODULE_00_EX01_INCLUDES_PHONEBOOK_HPP_
+#endif  // EX01_INCLUDES_PHONEBOOK_HPP_

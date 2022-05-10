@@ -1,7 +1,8 @@
 /* Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License. */
-#ifndef MODULE_00_EX01_INCLUDES_HEADERS_HPP_
-#define MODULE_00_EX01_INCLUDES_HEADERS_HPP_
+#ifndef EX01_INCLUDES_HEADERS_HPP_
+#define EX01_INCLUDES_HEADERS_HPP_
 
+#include <stdlib.h>
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -10,7 +11,9 @@
 
 void addContact(PhoneBook *phoneBook);
 void searchContact(PhoneBook *phoneBook);
+int isNotSpaces(std::string userInput);
+int isPrintAscii(std::string userInput);
+int isDigit(std::string userInput);
 
-
-#endif  // MODULE_00_EX01_INCLUDES_HEADERS_HPP_
+#endif  // EX01_INCLUDES_HEADERS_HPP_
 

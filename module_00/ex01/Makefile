@@ -2,7 +2,7 @@
 
 NAME = phonebook
 INCLUDES = ./includes/
-SOURCE = main.cpp Contact.cpp PhoneBook.cpp addContact.cpp searchContact.cpp
+SOURCE = main.cpp Contact.cpp PhoneBook.cpp addContact.cpp searchContact.cpp utils.cpp
 OBJECTS_DIR = ./objects/
 OBJECTS = $(SOURCE:%.cpp=$(OBJECTS_DIR)%.o)
 TESTS_DIR = ./tests/

@@ -1,6 +1,6 @@
 /* Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License. */
-#ifndef MODULE_00_EX01_INCLUDES_CONTACT_HPP_
-#define MODULE_00_EX01_INCLUDES_CONTACT_HPP_
+#ifndef EX01_INCLUDES_CONTACT_HPP_
+#define EX01_INCLUDES_CONTACT_HPP_
 
 #include <string>
 
@@ -22,4 +22,4 @@ class Contact {
     std::string _firstName, _lastName, _nickName, _phoneNumber, _darkestSecret;
 };
 
-#endif  // MODULE_00_EX01_INCLUDES_CONTACT_HPP_
+#endif  // EX01_INCLUDES_CONTACT_HPP_
