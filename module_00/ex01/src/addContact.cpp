@@ -2,13 +2,18 @@
 
 #include "../includes/headers.hpp"
 
-/*
-    NEED TO CHECK
-    FOR A STRING WITH
-    ONLY SPACES
-*/
+int isNotSpaces(std::string userInput) {
+    std::string::iterator it;
 
-int isValidInput(std::string userInput) {
+    for (it = userInput.begin(); it != userInput.end(); ++it) {
+        if (*it != ' ')
+            return (1);
+    }
+    std::cout << "Invalid character" << std::endl;
+    return (0);
+}
+
+int isPrintAscii(std::string userInput) {
     std::string::iterator it;
 
     for (it = userInput.begin(); it != userInput.end(); ++it) {
@@ -26,7 +31,7 @@ std::string getUserInput(std::string field) {
     while (1) {
         std::cout << "Enter the " << field << ": " << std::endl;
         std::getline(std::cin, userInput);
-        if (!userInput.empty() && isValidInput(userInput)) {
+        if (!userInput.empty() && isPrintAscii(userInput) && isNotSpaces(userInput)) {
             break;
         }
     }
