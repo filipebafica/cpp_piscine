@@ -8,6 +8,11 @@ std::string getUserInput(void) {
     while (1) {
         std::cout << "Select an Index: " << std::endl;
         std::getline(std::cin, userInput);
+        if (!std::cin) {
+            if (std::cin.eof()) {
+                std::cin.clear();
+            }
+        }
         if (!userInput.empty() && isDigit(userInput) && isNotSpaces(userInput)) {
             break;
         }

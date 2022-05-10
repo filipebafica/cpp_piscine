@@ -9,6 +9,11 @@ void repl(void) {
     while (1) {
         std::cout << "Select: ADD, SEARCH or EXIT" << std::endl;
         std::getline(std::cin, userOption);
+        if (!std::cin) {
+            if (std::cin.eof()) {
+                std::cin.clear();
+            }
+        }
         if (userOption == "ADD")
             addContact(&phoneBook);
         else if (userOption == "SEARCH")

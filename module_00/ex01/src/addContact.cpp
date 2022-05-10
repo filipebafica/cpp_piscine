@@ -8,6 +8,11 @@ std::string getUserInput(std::string field) {
     while (1) {
         std::cout << "Enter the " << field << ": " << std::endl;
         std::getline(std::cin, userInput);
+        if (!std::cin) {
+            if (std::cin.eof()) {
+                std::cin.clear();
+            }
+        }
         if (!userInput.empty() && isPrintAscii(userInput) && isNotSpaces(userInput)) {
             break;
         }
