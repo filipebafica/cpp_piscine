@@ -3,11 +3,14 @@
 #define MODULE_00_EX01_INCLUDES_HEADERS_HPP_
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include "../includes/PhoneBook.hpp"
 #include "../includes/Contact.hpp"
 
-void echo(std::string buff);
+void addContact(PhoneBook *phoneBook);
+void searchContact(PhoneBook *phoneBook);
+
 
 #endif  // MODULE_00_EX01_INCLUDES_HEADERS_HPP_
 
