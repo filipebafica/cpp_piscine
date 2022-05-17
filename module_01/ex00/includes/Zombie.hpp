@@ -12,7 +12,7 @@ class Zombie {
     void announce(void);
 
  private:
-    std::string _name;
+    std::string name;
 };
 
 #endif  // EX00_INCLUDES_ZOMBIE_HPP_
