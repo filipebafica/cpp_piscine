@@ -6,10 +6,14 @@
 
 class HumanB {
  public:
-    Weapon weapon;
+    explicit HumanB(std::string name);
+    ~HumanB(void);
+    void setWeapon(Weapon weapon);
+    void setName(std::string name);
     void attack(void);
 
  private:
+    Weapon weapon;
     std::string name;
 };
 

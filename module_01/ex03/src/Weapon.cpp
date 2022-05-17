@@ -1,7 +1,8 @@
 // Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
 #include "../includes/headers.hpp"
 
-Weapon::Weapon(void) {
+Weapon::Weapon(std::string newType) {
+    this->setType(newType);
 }
 
 Weapon::~Weapon(void) {
