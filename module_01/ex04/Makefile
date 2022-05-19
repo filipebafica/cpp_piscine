@@ -1,9 +1,11 @@
 # Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
 
 NAME = program
+INCLUDES = ./includes/
 SOURCE = main.cpp
 OBJECTS_DIR = ./objects/
 OBJECTS = $(SOURCE:%.cpp=$(OBJECTS_DIR)%.o)
+VPATH = ./src/
 CC = clang++
 FLAGS = -g -Wextra -Werror -Wall -std=c++98
 MAKEFLAGS = --no-print-directory
@@ -14,7 +16,7 @@ $(NAME): $(OBJECTS_DIR) $(OBJECTS)
 	@$(CC) $(FLAGS) $(OBJECTS) -o $@
 
 $(OBJECTS_DIR)%.o: %.cpp
-	@$(CC) -c $(FLAGS) $< -o $@
+	@$(CC) -c $(FLAGS) $< -I$(INCLUDES) -o $@
 
 $(OBJECTS_DIR):
 	@mkdir -p $@
