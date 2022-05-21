@@ -33,5 +33,23 @@ void Harl::error(void) {
 }
 
 void Harl::complain(std::string Level) {
+    void (Harl::*HarlMemFn[])(void) = {
+        &Harl::debug,
+        &Harl::info,
+        &Harl::warning,
+        &Harl::error,
+    };
+    std::string FnName[] = {
+        "debug",
+        "info",
+        "warning",
+        "error"
+    };
+    for (int i = 0; i < 4; ++i){
+        if (!FnName[i].compare(Level)) {
+            (this->*HarlMemFn[i])();
+            break;
+        }
+    }
 }
 
