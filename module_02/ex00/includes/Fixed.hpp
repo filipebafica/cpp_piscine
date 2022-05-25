@@ -6,8 +6,14 @@ class Fixed {
  public:
     Fixed(void);
     Fixed(const Fixed &fixed);
-    Fixed operator = (const Fixed &fixed);
+    Fixed& operator=(const Fixed &fixed);
     ~Fixed(void);
+    int getRawBits(void) const;
+    void setRawBits(int const raw);
+
+ private:
+    int _fixedPointValue;
+    static const int _numFractionalBits;
 };
 
 #endif  // EX00_INCLUDES_FIXED_HPP_
