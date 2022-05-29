@@ -1,7 +1,7 @@
 /* Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License. */
 
 #include <gtest/gtest.h>
-#include "../includes/megaphone.hpp"
+#include "../includes/headers.hpp"
 
 TEST(Ex00Test, EchoLowerToUpper) {
     std::stringstream buffer;
