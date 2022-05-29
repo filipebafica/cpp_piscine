@@ -11,6 +11,8 @@ std::string getUserInput(std::string field) {
         if (!std::cin) {
             if (std::cin.eof()) {
                 std::cin.clear();
+                std::cout << "THE PROGRAM HAS ENDED" << std::endl;
+                break;
             }
         }
         if (!userInput.empty() && isPrintAscii(userInput) && isNotSpaces(userInput)) {

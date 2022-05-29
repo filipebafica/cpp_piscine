@@ -12,8 +12,8 @@ void repl(void) {
         if (!std::cin) {
             if (std::cin.eof()) {
                 std::cin.clear();
-                std::cout << "THE PROGRAM WILL END" << std::endl;
-                break ;
+                std::cout << "THE PROGRAM HAS ENDED" << std::endl;
+                break;
             }
         }
         if (userOption == "ADD")
@@ -21,8 +21,8 @@ void repl(void) {
         else if (userOption == "SEARCH")
             searchContact(&phoneBook);
         else if (userOption == "EXIT") {
-            std::cout << "THE PROGRAM WILL END" << std::endl;
-            break ;
+            std::cout << "THE PROGRAM HAS ENDED" << std::endl;
+            break;
         }
     }
 }

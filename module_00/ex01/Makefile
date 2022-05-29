@@ -5,8 +5,6 @@ INCLUDES = ./includes/
 SOURCE = main.cpp Contact.cpp PhoneBook.cpp addContact.cpp searchContact.cpp utils.cpp
 OBJECTS_DIR = ./objects/
 OBJECTS = $(SOURCE:%.cpp=$(OBJECTS_DIR)%.o)
-TESTS_DIR = ./tests/
-TESTS_BUILD_DIR = ./tests/build/
 CC = clang++
 VPATH = ./src/
 FLAGS = -g -Wall -Wextra -Werror -std=c++98
@@ -31,10 +29,3 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
-
-test: $(TESTS_BUILD_DIR)
-	@cmake --build $(TESTS_BUILD_DIR)
-	@ctest --test-dir $(TESTS_BUILD_DIR)
-
-$(TESTS_BUILD_DIR):
-	@cmake -S $(TESTS_DIR) -B $(TESTS_BUILD_DIR)
