@@ -2,7 +2,7 @@
 #ifndef EX03_INCLUDES_WEAPON_HPP_
 #define EX03_INCLUDES_WEAPON_HPP_
 
-#include "../includes/headers.hpp"
+#include <string>
 
 class Weapon {
  public:

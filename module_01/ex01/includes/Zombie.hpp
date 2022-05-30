@@ -2,6 +2,7 @@
 #ifndef EX01_INCLUDES_ZOMBIE_HPP_
 #define EX01_INCLUDES_ZOMBIE_HPP_
 
+#include <string>
 #include "./headers.hpp"
 
 class Zombie {

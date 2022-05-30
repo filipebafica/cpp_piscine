@@ -2,7 +2,8 @@
 #ifndef EX03_INCLUDES_HUMANA_HPP_
 #define EX03_INCLUDES_HUMANA_HPP_
 
-#include "./headers.hpp"
+#include <string>
+#include "./Weapon.hpp"
 
 class HumanA {
  public:
