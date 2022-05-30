@@ -31,6 +31,72 @@ Fixed &Fixed::operator=(Fixed const &fixed) {
     return (*this);
 }
 
+bool Fixed::operator>(const Fixed &fixed) {
+    if (this->_rawBits > fixed._rawBits)
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator<(const Fixed &fixed) {
+    if (this->_rawBits < fixed._rawBits)
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator>=(const Fixed &fixed) {
+    if (this->_rawBits >= fixed._rawBits)
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator<=(const Fixed &fixed) {
+    if (this->_rawBits <= fixed._rawBits)
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator==(const Fixed &fixed) {
+    if (this->_rawBits == fixed._rawBits)
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator!=(const Fixed &fixed) {
+    if (this->_rawBits != fixed._rawBits)
+        return (true);
+    return (false);
+}
+
+Fixed Fixed::operator+(const Fixed &fixed) {
+    Fixed newFixed;
+    newFixed._rawBits = (this->_rawBits + fixed.getRawBits());
+    return (newFixed);
+}
+
+Fixed Fixed::operator-(const Fixed &fixed) {
+    Fixed newFixed;
+    newFixed._rawBits = (this->_rawBits - fixed.getRawBits());
+    return (newFixed);
+}
+
+Fixed Fixed::operator*(const Fixed &fixed) {
+    Fixed newFixed;
+    float tmp;
+
+    tmp = (this->toFloat() * fixed.toFloat());
+    newFixed._rawBits = roundf(tmp * pow(2, Fixed::_numFractionalBits));
+    return (newFixed);
+}
+
+Fixed Fixed::operator/(const Fixed &fixed) {
+    Fixed newFixed;
+    float tmp;
+
+    tmp = (this->toFloat() / fixed.toFloat());
+    newFixed._rawBits = roundf(tmp * pow(2, Fixed::_numFractionalBits));
+    return (newFixed);
+}
+
 Fixed::~Fixed(void) {
     std::cout << "Destructor called" << std::endl;
 }
