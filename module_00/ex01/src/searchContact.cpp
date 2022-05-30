@@ -12,7 +12,7 @@ std::string getUserInput(void) {
             if (std::cin.eof()) {
                 std::cin.clear();
                 std::cout << "THE PROGRAM HAS ENDED" << std::endl;
-                break;
+                exit(0);
             }
         }
         if (!userInput.empty() && isDigit(userInput) && isNotSpaces(userInput)) {

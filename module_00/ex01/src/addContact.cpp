@@ -12,7 +12,7 @@ std::string getUserInput(std::string field) {
             if (std::cin.eof()) {
                 std::cin.clear();
                 std::cout << "THE PROGRAM HAS ENDED" << std::endl;
-                break;
+                exit(0);
             }
         }
         if (!userInput.empty() && isPrintAscii(userInput) && isNotSpaces(userInput)) {
@@ -23,16 +23,17 @@ std::string getUserInput(std::string field) {
 }
 
 void addContact(PhoneBook *phoneBook) {
-    int index;
+    static int index;
 
-    if (phoneBook->numContacts == 7)
-        phoneBook->numContacts = 0;
-    index = phoneBook->numContacts;
+    if (index > 7)
+        index = 0;
     phoneBook->contacts[index].setFirstName(getUserInput("First Name"));
     phoneBook->contacts[index].setLastName(getUserInput("Last Name"));
     phoneBook->contacts[index].setNickName(getUserInput("Nick Name"));
     phoneBook->contacts[index].setPhoneNumber(getUserInput("Phone Number"));
     phoneBook->contacts[index].setDarkestSecret(getUserInput("Darkest Secret"));
-    phoneBook->numContacts++;
+    ++index;
+    if (phoneBook->numContacts <= 7)
+        phoneBook->numContacts++;
 }
 
