@@ -123,6 +123,30 @@ Fixed Fixed::operator--(int) {
     return (oldFixed);
 }
 
+Fixed& Fixed::min(Fixed &fixedOne, Fixed &fixedTwo) {
+    if (fixedOne < fixedTwo)
+        return (fixedOne);
+    return (fixedTwo);
+}
+
+Fixed& Fixed::min(Fixed const &fixedOne, Fixed const &fixedTwo) {
+    if (static_cast<Fixed>(fixedOne) < static_cast<Fixed>(fixedTwo))
+        return (const_cast<Fixed&>(fixedOne));
+    return (const_cast<Fixed&>(fixedTwo));
+}
+
+Fixed& Fixed::max(Fixed &fixedOne, Fixed &fixedTwo) {
+    if (fixedOne > fixedTwo)
+        return (fixedOne);
+    return (fixedTwo);
+}
+
+Fixed& Fixed::max(Fixed const &fixedOne, Fixed const &fixedTwo) {
+    if (static_cast<Fixed>(fixedOne) > static_cast<Fixed>(fixedTwo))
+        return (const_cast<Fixed&>(fixedOne));
+    return (const_cast<Fixed&>(fixedTwo));
+}
+
 Fixed::~Fixed(void) {
     std::cout << "Destructor called" << std::endl;
 }

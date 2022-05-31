@@ -25,6 +25,10 @@ class Fixed {
     Fixed operator++(int);
     Fixed operator--(void);
     Fixed operator--(int);
+    static Fixed& min(Fixed &fixedOne, Fixed &fixedTwo);
+    static Fixed& min(Fixed const &fixedOne, Fixed const &fixedTwo);
+    static Fixed& max(Fixed &fixedOne, Fixed &fixedTwo);
+    static Fixed& max(Fixed const &fixedOne, Fixed const &fixedTwo);
 
     ~Fixed(void);
     int getRawBits(void) const;
