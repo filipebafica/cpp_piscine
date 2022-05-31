@@ -97,6 +97,32 @@ Fixed Fixed::operator/(const Fixed &fixed) {
     return (newFixed);
 }
 
+Fixed Fixed::operator++(void) {
+    this->_rawBits++;
+    return (*this);
+}
+
+Fixed Fixed::operator++(int) {
+    Fixed oldFixed;
+
+    oldFixed = *this;
+    this->_rawBits++;
+    return (oldFixed);
+}
+
+Fixed Fixed::operator--(void) {
+    this->_rawBits--;
+    return (*this);
+}
+
+Fixed Fixed::operator--(int) {
+    Fixed oldFixed;
+
+    oldFixed = *this;
+    this->_rawBits--;
+    return (oldFixed);
+}
+
 Fixed::~Fixed(void) {
     std::cout << "Destructor called" << std::endl;
 }
