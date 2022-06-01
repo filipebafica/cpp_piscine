@@ -9,26 +9,26 @@ class Fixed {
     Fixed(void);
     explicit Fixed(const int value);
     explicit Fixed(const float value);
-    Fixed(const Fixed &fixed);
-    Fixed& operator=(const Fixed &fixed);
-    bool operator>(const Fixed &fixed);
-    bool operator<(const Fixed &fixed);
-    bool operator>=(const Fixed &fixed);
-    bool operator<=(const Fixed &fixed);
-    bool operator==(const Fixed &fixed);
-    bool operator!=(const Fixed &fixed);
-    Fixed operator+(const Fixed &fixed);
-    Fixed operator-(const Fixed &fixed);
-    Fixed operator*(const Fixed &fixed);
-    Fixed operator/(const Fixed &fixed);
+    Fixed(const Fixed& fixed);
+    Fixed& operator=(const Fixed& fixed);
+    bool operator>(const Fixed& fixed);
+    bool operator<(const Fixed& fixed);
+    bool operator>=(const Fixed& fixed);
+    bool operator<=(const Fixed& fixed);
+    bool operator==(const Fixed& fixed);
+    bool operator!=(const Fixed& fixed);
+    Fixed operator+(const Fixed& fixed);
+    Fixed operator-(const Fixed& fixed);
+    Fixed operator*(const Fixed& fixed);
+    Fixed operator/(const Fixed& fixed);
     Fixed operator++(void);
     Fixed operator++(int);
     Fixed operator--(void);
     Fixed operator--(int);
-    static Fixed& min(Fixed &fixedOne, Fixed &fixedTwo);
-    static Fixed& min(Fixed const &fixedOne, Fixed const &fixedTwo);
-    static Fixed& max(Fixed &fixedOne, Fixed &fixedTwo);
-    static Fixed& max(Fixed const &fixedOne, Fixed const &fixedTwo);
+    static Fixed& min(Fixed& fixedOne, Fixed& fixedTwo);
+    static Fixed& min(const Fixed& fixedOne, const Fixed& fixedTwo);
+    static Fixed& max(Fixed& fixedOne, Fixed& fixedTwo);
+    static Fixed& max(const Fixed& fixedOne, const Fixed& fixedTwo);
 
     ~Fixed(void);
     int getRawBits(void) const;
@@ -41,6 +41,6 @@ class Fixed {
     static const int _numFractionalBits;
 };
 
-std::ostream& operator<<(std::ostream& o, Fixed const& fixed);
+std::ostream& operator<<(std::ostream& o, const Fixed& fixed);
 
 #endif  // EX02_INCLUDES_FIXED_HPP_

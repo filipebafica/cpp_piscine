@@ -1,6 +1,6 @@
 // Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
 
-#include <math.h>
+#include <cmath>
 #include <iostream>
 #include "../includes/Fixed.hpp"
 
