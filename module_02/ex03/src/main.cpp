@@ -1,27 +1,22 @@
 // Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
 
 #include <iostream>
+#include "../includes/headers.hpp"
 #include "../includes/Point.hpp"
 #include "../includes/Fixed.hpp"
 
-
 int main(void) {
-    // Fixed a;
-    // Fixed const b(Fixed(5.05f) * Fixed(2));
-    Point a(1.0, 1.0);
-    Point b(2.0, 3.0);
+    Point a(0, 0);
+    Point b(20, 0);
+    Point c(10, 30);
 
-    a = b;
-    std::cout << a.getX() << std::endl;
-    std::cout << a.getY() << std::endl;
-
-    // std::cout << a << std::endl;
-    // std::cout << ++a << std::endl;
-    // std::cout << a << std::endl;
-    // std::cout << a++ << std::endl;
-    // std::cout << a << std::endl;
-    // std::cout << b << std::endl;
-    // std::cout << Fixed::max(a, b) << std::endl;
-
+    if (bsp(a, b, c, Point(30, 10)))
+        std::cout << "Inside" << std::endl;
+    else
+        std::cout << "Outside" << std::endl;
+    if (bsp(a, b, c, Point(10, 15)))
+        std::cout << "Inside" << std::endl;
+    else
+        std::cout << "Outside" << std::endl;
     return (0);
 }

@@ -2,7 +2,7 @@
 
 NAME = program
 INCLUDES = ./includes/
-SOURCE = main.cpp Fixed.cpp Point.cpp
+SOURCE = main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJECTS_DIR = ./objects/
 OBJECTS = $(SOURCE:%.cpp=$(OBJECTS_DIR)%.o)
 VPATH = ./src/
