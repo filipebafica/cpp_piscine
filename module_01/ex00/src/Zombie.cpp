@@ -5,7 +5,7 @@ Zombie::Zombie(void) {
 }
 
 Zombie::~Zombie(void) {
-    this->announce();
+    std::cout << "Destructor for: " << this->name << std::endl;
 }
 
 void Zombie::setName(std::string name) {

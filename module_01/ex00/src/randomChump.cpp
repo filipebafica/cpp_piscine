@@ -2,10 +2,8 @@
 #include "../includes/headers.hpp"
 
 void randomChump(std::string name) {
-    Zombie* randomChump;
+    Zombie randomChump;
 
-    randomChump = new(Zombie);
-    randomChump->setName(name);
-    randomChump->announce();
-    delete(randomChump);
+    randomChump.setName(name);
+    randomChump.announce();
 }

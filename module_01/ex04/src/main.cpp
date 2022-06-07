@@ -32,8 +32,17 @@ int main(int argc, char **argv) {
     std::string s2;
 
     if (argc != 4) {
-        std::cout << "Wrong number of parameters" << std::endl;
-        return (0);
+        std::cerr << "Wrong number of parameters" << std::endl;
+        return (1);
+    }
+    std::ifstream checkFile(argv[1]);
+    if (!checkFile) {
+        std::cerr << "Can't open file" << std::endl;
+        return (1);
+    }
+    if (checkFile.get() == std::ifstream::traits_type::eof()) {
+        std::cerr << "Empty file" << std::endl;
+        return (1);
     }
     s1 = argv[2];
     s2 = argv[3];
