@@ -16,7 +16,7 @@ class ClapTrap {
 
  private:
     std::string _name;
-    int _hitPoints, _energyPoints, _attackDamage;
+    unsigned int _hitPoints, _energyPoints, _attackDamage;
 };
 
 #endif  // EX00_INCLUDES_CLAP_TRAP_HPP_
