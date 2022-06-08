@@ -1,6 +1,6 @@
 // Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
-#ifndef EX00_INCLUDES_CLAP_TRAP_HPP_
-#define EX00_INCLUDES_CLAP_TRAP_HPP_
+#ifndef EX00_INCLUDES_CLAPTRAP_HPP_
+#define EX00_INCLUDES_CLAPTRAP_HPP_
 #include <string>
 
 class ClapTrap {
@@ -19,4 +19,4 @@ class ClapTrap {
     unsigned int _hitPoints, _energyPoints, _attackDamage;
 };
 
-#endif  // EX00_INCLUDES_CLAP_TRAP_HPP_
+#endif  // EX00_INCLUDES_CLAPTRAP_HPP_

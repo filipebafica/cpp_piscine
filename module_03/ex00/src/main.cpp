@@ -3,5 +3,8 @@
 #include "../includes/ClapTrap.hpp"
 
 int main(void) {
+    ClapTrap cp("playerOne");
+
+    cp.attack("playerTwo");
     return (0);
 }
