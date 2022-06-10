@@ -1,6 +1,6 @@
 // Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
-#ifndef EX00_INCLUDES_CLAPTRAP_HPP_
-#define EX00_INCLUDES_CLAPTRAP_HPP_
+#ifndef EX03_INCLUDES_CLAPTRAP_HPP_
+#define EX03_INCLUDES_CLAPTRAP_HPP_
 
 #include <string>
 
@@ -14,10 +14,14 @@ class ClapTrap {
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
+    std::string getName(void) const;
+    unsigned int getHitPoints(void) const;
+    unsigned int getEnergyPoints(void) const;
+    unsigned int getAttackDamage(void) const;
 
- private:
+ protected:
     std::string _name;
     unsigned int _hitPoints, _energyPoints, _attackDamage;
 };
 
-#endif  // EX00_INCLUDES_CLAPTRAP_HPP_
+#endif  // EX03_INCLUDES_CLAPTRAP_HPP_
