@@ -12,43 +12,29 @@ ScavTrap::ScavTrap(void) {
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
     std::cout << "String constructor called for a ScavTrap object" << std::endl;
     this->_name = name;
+    this->_className.assign("ScavTrap");
     this->_hitPoints = 100;
     this->_energyPoints = 50;
+    this->_energyPointsBase = 50;
     this->_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& obj) : ClapTrap() {
+ScavTrap::ScavTrap(const ScavTrap& src) : ClapTrap() {
     std::cout << "Copy constructor called for a ScavTrap object" << std::endl;
-    *this = obj;
+    *this = src;
 }
 
-ScavTrap& ScavTrap::operator=(const ScavTrap& obj) {
+ScavTrap& ScavTrap::operator=(const ScavTrap& rhs) {
     std::cout << "Copy assignment operator called for a ScavTrap object" << std::endl;
-    this->_name = obj._name;
-    this->_hitPoints = obj._hitPoints;
-    this->_energyPoints = obj._energyPoints;
-    this->_attackDamage = obj._attackDamage;
+    this->_name = rhs._name;
+    this->_hitPoints = rhs._hitPoints;
+    this->_energyPoints = rhs._energyPoints;
+    this->_attackDamage = rhs._attackDamage;
     return (*this);
 }
 
 ScavTrap::~ScavTrap(void) {
     std::cout << "Destructor called for a ScavTrap object" << std::endl;
-}
-
-std::string ScavTrap::getName(void) const {
-    return (this->_name);
-}
-
-unsigned int ScavTrap::getHitPoints(void) const {
-    return (this->_hitPoints);
-}
-
-unsigned int ScavTrap::getEnergyPoints(void) const {
-    return (this->_energyPoints);
-}
-
-unsigned int ScavTrap::getAttackDamage(void) const {
-    return (this->_attackDamage);
 }
 
 void ScavTrap::guardGate(void) {

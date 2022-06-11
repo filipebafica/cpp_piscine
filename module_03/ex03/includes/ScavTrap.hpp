@@ -5,18 +5,17 @@
 #include <string>
 #include "./ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap{
+class ScavTrap : virtual public ClapTrap {
  public:
     ScavTrap(void);
     explicit ScavTrap(std::string name);
-    ScavTrap(const ScavTrap& ct);
-    ScavTrap& operator=(const ScavTrap& ct);
+    ScavTrap(const ScavTrap& src);
+    ScavTrap& operator=(const ScavTrap& rhs);
     ~ScavTrap(void);
-    std::string getName(void) const;
-    unsigned int getHitPoints(void) const;
-    unsigned int getEnergyPoints(void) const;
-    unsigned int getAttackDamage(void) const;
     void guardGate(void);
+
+ protected:
+    unsigned int _energyPointsBase;
 };
 
 #endif  // EX03_INCLUDES_SCAVTRAP_HPP_

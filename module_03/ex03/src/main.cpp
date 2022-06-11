@@ -5,7 +5,7 @@
 
 int main(void) {
     std::cout << std::endl << "[ CONSTRUCTORS ]" << std::endl << std::endl;
-    DiamondTrap diamond("diamond");
+    DiamondTrap diamond("playerOne");
 
     std::cout << std::endl << "[ ATTRIBUTES ]" << std::endl << std::endl;
     std::cout << "Hit Points: " << diamond.getHitPoints() << std::endl
@@ -16,7 +16,7 @@ int main(void) {
     diamond.whoAmI();
 
     std::cout << std::endl << "[ ATTACK ]" << std::endl << std::endl;
-    diamond.attack("target");
+    diamond.attack("playerTwo");
 
     std::cout << std::endl << "[ DESTRUCTORS ]" << std::endl << std::endl;
     return (0);

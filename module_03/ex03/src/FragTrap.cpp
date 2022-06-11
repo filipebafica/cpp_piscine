@@ -12,43 +12,29 @@ FragTrap::FragTrap(void) {
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
     std::cout << "String constructor called for a FragTrap object" << std::endl;
     this->_name = name;
+    this->_className.assign("FragTrap");
     this->_hitPoints = 100;
-    this->_energyPoints = 100;
+    // this->_energyPoints = 100;
+    FragTrap::_energyPoints = 100;
     this->_attackDamage = 30;
 }
 
-FragTrap::FragTrap(const FragTrap& obj) : ClapTrap() {
+FragTrap::FragTrap(const FragTrap& src) : ClapTrap() {
     std::cout << "Copy constructor called for a FragTrap object" << std::endl;
-    *this = obj;
+    *this = src;
 }
 
-FragTrap& FragTrap::operator=(const FragTrap& obj) {
+FragTrap& FragTrap::operator=(const FragTrap& rhs) {
     std::cout << "Copy assignment operator called for a FragTrap object" << std::endl;
-    this->_name = obj._name;
-    this->_hitPoints = obj._hitPoints;
-    this->_energyPoints = obj._energyPoints;
-    this->_attackDamage = obj._attackDamage;
+    this->_name = rhs._name;
+    this->_hitPoints = rhs._hitPoints;
+    this->_energyPoints = rhs._energyPoints;
+    this->_attackDamage = rhs._attackDamage;
     return (*this);
 }
 
 FragTrap::~FragTrap(void) {
     std::cout << "Destructor called for a FragTrap object" << std::endl;
-}
-
-std::string FragTrap::getName(void) const {
-    return (this->_name);
-}
-
-unsigned int FragTrap::getHitPoints(void) const {
-    return (this->_hitPoints);
-}
-
-unsigned int FragTrap::getEnergyPoints(void) const {
-    return (this->_energyPoints);
-}
-
-unsigned int FragTrap::getAttackDamage(void) const {
-    return (this->_attackDamage);
 }
 
 void FragTrap::highFivesGuys(void) {

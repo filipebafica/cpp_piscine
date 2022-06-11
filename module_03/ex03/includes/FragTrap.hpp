@@ -9,13 +9,9 @@ class FragTrap : virtual public ClapTrap{
  public:
     FragTrap(void);
     explicit FragTrap(std::string name);
-    FragTrap(const FragTrap& ct);
-    FragTrap& operator=(const FragTrap& ct);
+    FragTrap(const FragTrap& src);
+    FragTrap& operator=(const FragTrap& rhs);
     ~FragTrap(void);
-    std::string getName(void) const;
-    unsigned int getHitPoints(void) const;
-    unsigned int getEnergyPoints(void) const;
-    unsigned int getAttackDamage(void) const;
     void highFivesGuys(void);
 };
 

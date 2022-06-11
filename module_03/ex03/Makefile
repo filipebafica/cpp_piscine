@@ -7,7 +7,7 @@ OBJECTS_DIR = ./objects/
 OBJECTS = $(SOURCE:%.cpp=$(OBJECTS_DIR)%.o)
 VPATH = ./src/
 CC = c++
-FLAGS = -g -Wall -Wextra -Werror -std=c++98 -Wshadow
+FLAGS = -g -Wall -Wextra -Werror -std=c++98
 MAKEFLAGS = --no-print-directory
 
 all: $(NAME)
