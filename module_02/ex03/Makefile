@@ -6,7 +6,7 @@ SOURCE = main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJECTS_DIR = ./objects/
 OBJECTS = $(SOURCE:%.cpp=$(OBJECTS_DIR)%.o)
 VPATH = ./src/
-CC = clang++
+CC = c++
 FLAGS = -g -Wextra -Werror -Wall -std=c++98
 MAKEFLAGS = --no-print-directory
 
