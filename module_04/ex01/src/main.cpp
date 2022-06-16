@@ -22,7 +22,6 @@ int main(void) {
     std::cout << std::endl << "[INDIVIDUAL TEST]" << std::endl << std::endl;
     const Animal* j = new Dog();
     const Animal* i = new Cat();
-
     delete j;
     delete i;
     return (0);
