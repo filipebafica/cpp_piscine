@@ -5,14 +5,17 @@
 #include <string>
 
 class Animal {
- public: 
+ public:
     Animal(void);
     Animal(const Animal& src);
     Animal& operator=(const Animal& rhs);
-    ~Animal(void);
+    virtual ~Animal(void);
+    std::string getType(void) const;
+    void setType(std::string type);
+    virtual void makeSound(void) const;
 
  protected:
-    std::string type;
+   std::string type;
 };
 
 #endif  // EX00_INCLUDES_ANIMAL_HPP_
