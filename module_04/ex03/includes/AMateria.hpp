@@ -6,19 +6,19 @@
 #include "./ICharacter.hpp"
 
 class AMateria {
- protected:
-    std::string type;
-
  public:
     AMateria(void);
+    AMateria(std::string const& type);
     AMateria(const AMateria& src);
     AMateria& operator=(const AMateria& rhs);
     virtual ~AMateria(void);
-    AMateria(std::string const & type);
-    virtual AMateria* clone() const = 0;
-    virtual void use(ICharacter& target);
-    std::string const& getType() const;
+    std::string const& getType(void) const; // returns a const reference // makes this const
     void setType(std::string type);
+    virtual AMateria* clone(void) const = 0;
+    virtual void use(ICharacter& target);
+
+ protected:
+    std::string type;
 };
 
 #endif  // EX03_INCLUDES_AMATERIA_HPP_
