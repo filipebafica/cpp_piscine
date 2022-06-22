@@ -28,7 +28,7 @@ Ice::~Ice(void) {
 
 void use(ICharacter& target) {
     std::cout << "* shoots an ice bolt at "
-              << target.type
-              << "*" << std::endl;
+              << target.getName()
+              << " *" << std::endl;
 }
 

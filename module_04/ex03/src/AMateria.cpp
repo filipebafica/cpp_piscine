@@ -36,5 +36,7 @@ void AMateria::setType(std::string type) {
     this->type = type;
 }
 
-void use(ICharacter& target) {}
+void use(ICharacter& target) {
+    (void)target;
+}
 

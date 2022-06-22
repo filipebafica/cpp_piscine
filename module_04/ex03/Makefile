@@ -1,7 +1,7 @@
 # Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
 NAME = program
 INCLUDES = ./includes/
-SOURCE = main.cpp 
+SOURCE = main.cpp AMateria.cpp Character.cpp
 OBJECTS_DIR = ./objects/
 OBJECTS = $(SOURCE:%.cpp=$(OBJECTS_DIR)%.o)
 VPATH = ./src/
