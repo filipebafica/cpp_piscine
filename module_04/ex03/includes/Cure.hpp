@@ -12,7 +12,7 @@ class Cure : public AMateria {
     Cure& operator=(const Cure& rhs);
     ~Cure(void);
     AMateria* clone(void) const;
-    virtual void use(ICharacter& target);
+    void use(ICharacter& target);
 };
 
 #endif  // EX03_INCLUDES_CURE_HPP_

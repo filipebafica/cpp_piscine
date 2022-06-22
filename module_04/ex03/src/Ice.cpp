@@ -11,7 +11,7 @@ Ice::Ice(void) : AMateria() {
     this->type = "ice";
 }
 
-Ice::Ice(const Ice& src) {
+Ice::Ice(const Ice& src) : AMateria() {
     std::cout << "Copy constructor called for an Ice object" << std::endl;
     *this = src;
 }
@@ -26,9 +26,15 @@ Ice::~Ice(void) {
     std::cout << "Default destructor called for an Ice object" << std::endl;
 }
 
-void use(ICharacter& target) {
+void Ice::use(ICharacter& target) {
     std::cout << "* shoots an ice bolt at "
               << target.getName()
               << " *" << std::endl;
+}
+
+AMateria* Ice::clone(void) const {
+    AMateria* m = new Ice();
+    m = const_cast<Ice*>(this);
+    return (m);
 }
 

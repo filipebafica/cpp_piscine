@@ -11,9 +11,8 @@ class Ice : public AMateria {
     Ice(const Ice& src);
     Ice& operator=(const Ice& rhs);
     ~Ice(void);
-    std::string getType(void) const;
     AMateria* clone(void) const;
-    virtual void use(ICharacter& target);
+    void use(ICharacter& target);
 };
 
 #endif  // EX03_INCLUDES_ICE_HPP_

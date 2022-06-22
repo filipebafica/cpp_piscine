@@ -14,7 +14,8 @@ class Character : public ICharacter {
     Character& operator=(const Character& rhs);
     ~Character(void);
     std::string const& getName(void) const;
-    AMateria* const* getFromInventory(int idx) const;
+    void setName(std::string name);
+    AMateria* getFromInventory(int idx) const;
     void equip(AMateria* m);
     void unequip(int idx);
     void use(int idx, ICharacter& target);

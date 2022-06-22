@@ -11,7 +11,7 @@ Cure::Cure(void) : AMateria() {
     this->type = "cure";
 }
 
-Cure::Cure(const Cure& src) {
+Cure::Cure(const Cure& src) : AMateria() {
     std::cout << "Copy constructor called for a Cure object" << std::endl;
     *this = src;
 }
@@ -26,9 +26,14 @@ Cure::~Cure(void) {
     std::cout << "Default destructor called for a Cure object" << std::endl;
 }
 
-void use(ICharacter& target) {
+void Cure::use(ICharacter& target) {
     std::cout << "* heals "
               << target.getName()
               << "'s wounds *" << std::endl;
 }
 
+AMateria* Cure::clone(void) const {
+    AMateria* m = new Cure();
+    m = const_cast<Cure*>(this);
+    return (m);
+}
