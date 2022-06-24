@@ -1,7 +1,7 @@
 # Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
 NAME = program
 INCLUDES = ./includes/
-SOURCE = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp
+SOURCE = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJECTS_DIR = ./objects/
 OBJECTS = $(SOURCE:%.cpp=$(OBJECTS_DIR)%.o)
 VPATH = ./src/
@@ -15,7 +15,7 @@ $(NAME): $(OBJECTS_DIR) $(OBJECTS)
 	@$(CC) $(FLAGS) $(OBJECTS) -o $@
 
 $(OBJECTS_DIR)%.o: %.cpp
-	@$(CC) -c $(FLAGS) $^ -o $@
+	@$(CC) -c $(FLAGS) $< -I$(INCLUDES) -o $@
 
 $(OBJECTS_DIR):
 	@mkdir -p $(OBJECTS_DIR)

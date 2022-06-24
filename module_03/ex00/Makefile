@@ -16,7 +16,7 @@ $(NAME): $(OBJECTS_DIR) $(OBJECTS)
 	@$(CC) $(FLAGS) $(OBJECTS) -o $@
 
 $(OBJECTS_DIR)%.o: %.cpp
-	@$(CC) -c $(FLAGS) $^ -o $@
+	@$(CC) -c $(FLAGS) $< -I$(INCLUDES) -o $@
 
 $(OBJECTS_DIR):
 	@mkdir -p $(OBJECTS_DIR)
