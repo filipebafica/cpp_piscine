@@ -26,7 +26,6 @@ Character::Character(std::string name) : ICharacter() {
 Character::Character(const Character& src) {
     std::cout << "Copy constructor called for a Character object" << std::endl;
     *this = src;
-    // std::cout << &src << std::endl;
 }
 
 Character& Character::operator=(const Character& rhs) {
@@ -35,11 +34,8 @@ Character& Character::operator=(const Character& rhs) {
     for (int i = 0; i < 4; ++i) {
         if (this->_inventory[i] != NULL)
             delete this->_inventory[i];
-        if (rhs.getFromInventory(i)->getType() == "ice")
-            this->_inventory[i] = new Ice();
-        if (rhs.getFromInventory(i)->getType() == "cure")
-            this->_inventory[i] = new Cure();
-        *this->_inventory[i] = *rhs.getFromInventory(i);
+        if (rhs.getFromInventory(i))
+            this->_inventory[i] = rhs.getFromInventory(i)->clone();
     }
     return (*this);
 }
@@ -61,7 +57,9 @@ void Character::setName(std::string name) {
 }
 
 AMateria* Character::getFromInventory(int idx) const {
-    return (this->_inventory[idx]);
+    if (idx >= 0 && idx < 4)
+        return (this->_inventory[idx]);
+    return (NULL);
 }
 
 void Character::equip(AMateria* m) {
@@ -74,10 +72,11 @@ void Character::equip(AMateria* m) {
 }
 
 void Character::unequip(int idx) {
-    this->_inventory[idx] = NULL;
+    if (idx >= 0 && idx < 4)
+        this->_inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target) {
-    (void) idx;
-    (void) target;
+    if (idx >= 0 && idx < 4 && this->_inventory[idx])
+        this->_inventory[idx]->use(target);
 }
