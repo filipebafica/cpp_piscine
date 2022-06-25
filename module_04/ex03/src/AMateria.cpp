@@ -20,6 +20,7 @@ AMateria::AMateria(const AMateria& src) {
 
 AMateria& AMateria::operator=(const AMateria& rhs) {
     std::cout << "Copy assignment operator called for an AMateria object" << std::endl;
+    (void)rhs;
     return (*this);
 }
 

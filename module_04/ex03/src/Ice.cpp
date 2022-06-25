@@ -33,8 +33,6 @@ void Ice::use(ICharacter& target) {
 }
 
 AMateria* Ice::clone(void) const {
-    AMateria* m = new Ice();
-    m = const_cast<Ice*>(this);
-    return (m);
+    return (new Ice());
 }
 

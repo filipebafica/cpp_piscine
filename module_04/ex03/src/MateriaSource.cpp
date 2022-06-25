@@ -30,18 +30,33 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& rhs) {
 
 MateriaSource::~MateriaSource(void) {
     std::cout << "Default destructor called for a MateriaSource object" << std::endl;
-}
-
-void MateriaSource::learnMateria(AMateria* m) {
     for (int i = 0; i < 4; ++i) {
-        if (!this->_book[i]) {
-            this->_book[i] = m;
-            break;
+        if (this->_book[i] != NULL) {
+            delete this->_book[i];
+            this->_book[i] = NULL;
         }
     }
 }
 
-AMateria* createMateria(std::string const& type) {
+void MateriaSource::learnMateria(AMateria* m) {
+    for (int i = 0; i < 4; ++i) {
+        if (this->_book[i] == NULL) {
+            this->_book[i] = m;
+            std::cout << "Leaning " << m->getType() << " materia" << std::endl;
+            return;
+        }
+    }
+    std::cout << "Could not learn a materia" << std::endl;
+}
+
+AMateria* MateriaSource::createMateria(std::string const& type) {
+    for (int i = 0; i < 4; ++i) {
+        if (this->_book[i] && this->getFromBook(i)->getType() == type) {
+            std::cout << "Creating " << type << " materia" << std::endl;
+            return (this->_book[i]->clone());
+        }
+    }
+    std::cout << "Unable to create a " << type << " materia" << std::endl;
     return (0);
 }
 

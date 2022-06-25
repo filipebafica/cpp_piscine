@@ -33,7 +33,5 @@ void Cure::use(ICharacter& target) {
 }
 
 AMateria* Cure::clone(void) const {
-    AMateria* m = new Cure();
-    m = const_cast<Cure*>(this);
-    return (m);
+    return (new Cure());
 }

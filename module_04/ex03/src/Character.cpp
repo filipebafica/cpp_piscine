@@ -32,8 +32,10 @@ Character& Character::operator=(const Character& rhs) {
     std::cout << "Copy assignment operator called for a Character object" << std::endl;
     this->_name = rhs.getName();
     for (int i = 0; i < 4; ++i) {
-        if (this->_inventory[i] != NULL)
+        if (this->_inventory[i] != NULL) {
             delete this->_inventory[i];
+            this->_inventory[i] = NULL;
+        }
         if (rhs.getFromInventory(i))
             this->_inventory[i] = rhs.getFromInventory(i)->clone();
     }
@@ -43,8 +45,10 @@ Character& Character::operator=(const Character& rhs) {
 Character::~Character(void) {
     std::cout << "Default destructor called for a Character object" << std::endl;
     for (int i = 0; i < 4; ++i) {
-        if (this->_inventory[i] != NULL)
+        if (this->_inventory[i] != NULL) {
             delete this->_inventory[i];
+            this->_inventory[i] = NULL;
+        }
     }
 }
 
@@ -64,16 +68,22 @@ AMateria* Character::getFromInventory(int idx) const {
 
 void Character::equip(AMateria* m) {
     for (int i = 0; i < 4; ++i) {
-        if (!this->_inventory[i]) {
+        if (this->_inventory[i] == NULL) {
             this->_inventory[i] = m;
-            break;
+            std::cout << "Equiping " << m->getType() << " materia" << std::endl;
+            return;
         }
     }
+    std::cout << "Unable to equip a materia" << std::endl;
 }
 
 void Character::unequip(int idx) {
-    if (idx >= 0 && idx < 4)
+    if (idx >= 0 && idx < 4 && this->_inventory[idx] != NULL) {
+        std::cout << "Unequiping " << this->_inventory[idx]->getType() << " materia" << std::endl;
         this->_inventory[idx] = NULL;
+        return;
+    }
+     std::cout << "Unable to unequip a materia" << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target) {
