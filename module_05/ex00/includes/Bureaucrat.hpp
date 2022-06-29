@@ -7,13 +7,20 @@
 
 class Bureaucrat {
  public:
-    Bureaucrat(std::string const& name, int grade);
-    Bureaucrat(Bureaucrat const& src);
-    Bureaucrat& operator=(Bureaucrat const& rhs);
+    Bureaucrat(const std::string& name, int grade);
+    Bureaucrat(const Bureaucrat& src);
+    Bureaucrat& operator=(const Bureaucrat& rhs);
+    Bureaucrat& operator<<(const Bureaucrat& rhs);
     ~Bureaucrat(void);
     std::string getName(void) const;
     int getGrade(void) const;
+    void incrementGrade(void);
+    void decrementGrade(void);
     class GradeTooHighException : public std::exception {
+     public:
+            const char* what() const throw();
+    };
+    class GradeTooLowException : public std::exception {
      public:
             const char* what() const throw();
     };
@@ -21,6 +28,9 @@ class Bureaucrat {
  private:
     Bureaucrat(void);
     std::string const _name;
-    int grade;
+    int _grade;
 };
+
+std::ostream& operator<<(std::ostream& o, const Bureaucrat& bureaucrat);
+
 #endif  // EX00_INCLUDES_BUREAUCRAT_HPP_

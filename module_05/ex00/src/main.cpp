@@ -4,12 +4,87 @@
 #include "../includes/Bureaucrat.hpp"
 
 int main(void) {
-    try {
-        Bureaucrat b("foo", 0);
+    {
+        std::cout << std::endl << "[TRYING TO INSTANCIATE WITH A TOO HIGH GRADE (0)]" << std::endl;
+        try {
+            Bureaucrat b("foo", 0);
+        }
+        catch(Bureaucrat::GradeTooHighException& e) {
+            std::cout << e.what() << std::endl;
+        }
+        catch(Bureaucrat::GradeTooLowException& e) {
+            std::cout << e.what() << std::endl;
+        }
     }
-    catch(Bureaucrat::GradeTooHighException& e) {
-        (void)e;
-        std::cout << "hello world!" << std::endl;
+    {
+        std::cout << std::endl << "[TRYING TO INSTANCIATE WITH A TOO LOW GRADE (151)]" << std::endl;
+        try {
+            Bureaucrat b("foo", 151);
+        }
+        catch(Bureaucrat::GradeTooHighException& e) {
+            std::cout << e.what() << std::endl;
+        }
+        catch(Bureaucrat::GradeTooLowException& e) {
+            std::cout << e.what() << std::endl;
+        }
+    }
+    {
+        std::cout << std::endl << "[TRYING TO INCREMENT A TOO HIGH GRADE]" << std::endl;
+        try {
+            Bureaucrat b("foo", 1);
+            std::cout << b << std::endl;
+            b.incrementGrade();
+        }
+        catch(Bureaucrat::GradeTooHighException& e) {
+            std::cout << e.what() << std::endl;
+        }
+        catch(Bureaucrat::GradeTooLowException& e) {
+            std::cout << e.what() << std::endl;
+        }
+    }
+    {
+        std::cout << std::endl << "[TRYING TO DECREMENT A TOO LOW GRADE]" << std::endl;
+        try {
+            Bureaucrat b("foo", 150);
+            std::cout << b << std::endl;
+            b.decrementGrade();
+        }
+        catch(Bureaucrat::GradeTooHighException& e) {
+            std::cout << e.what() << std::endl;
+        }
+        catch(Bureaucrat::GradeTooLowException& e) {
+            std::cout << e.what() << std::endl;
+        }
+    }
+    {
+        std::cout << std::endl << "[INCREMENTING FROM 2 TO 1]" << std::endl;
+        try {
+            Bureaucrat b("foo", 2);
+            std::cout << b << std::endl;
+            b.incrementGrade();
+            std::cout << b << std::endl;
+        }
+        catch(Bureaucrat::GradeTooHighException& e) {
+            std::cout << e.what() << std::endl;
+        }
+        catch(Bureaucrat::GradeTooLowException& e) {
+            std::cout << e.what() << std::endl;
+        }
+    }
+    {
+        std::cout << std::endl << "[DECREMENTING FROM 1 TO 2]" << std::endl;
+        try {
+            Bureaucrat b("foo", 1);
+            std::cout << b << std::endl;
+            b.decrementGrade();
+            std::cout << b << std::endl;
+        }
+        catch(Bureaucrat::GradeTooHighException& e) {
+            std::cout << e.what() << std::endl;
+        }
+        catch(Bureaucrat::GradeTooLowException& e) {
+            std::cout << e.what() << std::endl;
+        }
     }
     return (0);
 }
