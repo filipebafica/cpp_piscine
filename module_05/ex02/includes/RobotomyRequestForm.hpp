@@ -7,7 +7,7 @@
 
 class RobotomyRequestForm : public Form {
  public:
-    explicit RobotomyRequestForm(const std::string& name);
+    explicit RobotomyRequestForm(const Form& target);
     RobotomyRequestForm(const RobotomyRequestForm& src);
     RobotomyRequestForm& operator=(const RobotomyRequestForm& rhs);
     ~RobotomyRequestForm(void);

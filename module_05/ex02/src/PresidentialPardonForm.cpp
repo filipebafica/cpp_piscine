@@ -5,13 +5,13 @@
 #include "../includes/Bureaucrat.hpp"
 #include "../includes/Form.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void) : Form("", 25, 5) {
+PresidentialPardonForm::PresidentialPardonForm(void) : Form("PresidentialPardonForm", 25, 5) {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string& name) : Form(name, 25, 5) {
+PresidentialPardonForm::PresidentialPardonForm(const Form& target) : Form("PresidentialPardonForm", 25, 5) {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src) : Form("", src.getSignGrade(), src.getExecuteGrade()) {
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src) : Form("PresidentialPardonForm", src.getSignGrade(), src.getExecuteGrade()) {
     *this = src;
 }
 
