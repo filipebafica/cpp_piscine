@@ -1,6 +1,6 @@
 // Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
-#ifndef EX01_INCLUDES_FORM_HPP_
-#define EX01_INCLUDES_FORM_HPP_
+#ifndef EX02_INCLUDES_FORM_HPP_
+#define EX02_INCLUDES_FORM_HPP_
 
 #include <string>
 #include <exception>
@@ -15,10 +15,15 @@ class Form {
     Form& operator=(const Form& rhs);
     ~Form(void);
     std::string getName(void) const;
+    void setName(std::string name);
     bool getStatus(void) const;
+    void setStatus(bool status);
     int getSignGrade(void) const;
+    void setSignGrade(int signGrade);
     int getExecuteGrade(void) const;
+    void setExecuteGrade(int executeGrade);
     void beSigned(Bureaucrat b);
+    virtual void execute(Bureaucrat const& executor) = 0;
     class GradeTooHighException : public std::exception {
      public:
             const char* what() const throw();
@@ -37,4 +42,4 @@ class Form {
 
 std::ostream& operator<<(std::ostream& o, const Form& f);
 
-#endif  // EX01_INCLUDES_FORM_HPP_
+#endif  // EX02_INCLUDES_FORM_HPP_
