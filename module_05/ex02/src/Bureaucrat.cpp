@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include "../includes/Bureaucrat.hpp"
-#include "../includes/Form.hpp"
+#include "../includes/AForm.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("") {
 }
@@ -48,19 +48,27 @@ void Bureaucrat::decrementGrade(void) {
     std::cout << "Grade was decremented" << std::endl;
 }
 
-void Bureaucrat::signForm(Form f) const {
-    if (this->getGrade() > f.getSignGrade()) {
+void Bureaucrat::signForm(AForm *f) const {
+    if (this->getGrade() > f->getSignGrade()) {
     std::cout << this->_name
               << " couldn't sign "
-              << f.getName()
+              << f->getName()
               << " because ";
     } else {
         std::cout << this->_name
                 << " signed "
-                << f.getName()
+                << f->getName()
                 << std::endl;
     }
-    f.beSigned(*this);
+    f->beSigned(*this);
+}
+
+void Bureaucrat::executeForm(AForm const& form) {
+    std::cout << this->getName()
+              << " executed "
+              << form.getName()
+              << std::endl;
+    form.execute(*this);
 }
 
 std::ostream& operator<<(std::ostream& o, const Bureaucrat& b) {

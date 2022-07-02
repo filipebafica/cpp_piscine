@@ -3,16 +3,19 @@
 #define EX02_INCLUDES_SHRUBBERYCREATIONFORM_HPP_
 
 #include <string>
-#include "./Form.hpp"
+#include "./AForm.hpp"
+#include "./Bureaucrat.hpp"
 
-class ShrubberyCreationForm : public Form {
+class ShrubberyCreationForm : public AForm {
  public:
-    explicit ShrubberyCreationForm(const Form& target);
+    explicit ShrubberyCreationForm(std::string target);
     ShrubberyCreationForm(const ShrubberyCreationForm& src);
     ShrubberyCreationForm& operator=(const ShrubberyCreationForm& rhs);
     ~ShrubberyCreationForm(void);
+    void execute(Bureaucrat const& executor) const;
  private:
     ShrubberyCreationForm(void);
+    std::string _target;
 };
 
 

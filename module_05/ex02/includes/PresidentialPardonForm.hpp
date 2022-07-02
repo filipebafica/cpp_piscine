@@ -3,16 +3,19 @@
 #define EX02_INCLUDES_PRESIDENTIALPARDONFORM_HPP_
 
 #include <string>
-#include "./Form.hpp"
+#include "./AForm.hpp"
 
-class PresidentialPardonForm : public Form {
+class PresidentialPardonForm : public AForm {
  public:
-    explicit PresidentialPardonForm(const Form& target);
+    explicit PresidentialPardonForm(std::string target);
     PresidentialPardonForm(const PresidentialPardonForm& src);
     PresidentialPardonForm& operator=(const PresidentialPardonForm& rhs);
     ~PresidentialPardonForm(void);
+    void execute(Bureaucrat const& executor) const;
+
  private:
     PresidentialPardonForm(void);
+    std::string _target;
 };
 
 #endif  // EX02_INCLUDES_PRESIDENTIALPARDONFORM_HPP_

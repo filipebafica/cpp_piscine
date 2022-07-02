@@ -3,16 +3,18 @@
 #define EX02_INCLUDES_ROBOTOMYREQUESTFORM_HPP_
 
 #include <string>
-#include "./Form.hpp"
+#include "./AForm.hpp"
 
-class RobotomyRequestForm : public Form {
+class RobotomyRequestForm : public AForm {
  public:
-    explicit RobotomyRequestForm(const Form& target);
+    explicit RobotomyRequestForm(std::string target);
     RobotomyRequestForm(const RobotomyRequestForm& src);
     RobotomyRequestForm& operator=(const RobotomyRequestForm& rhs);
     ~RobotomyRequestForm(void);
+    void execute(Bureaucrat const& executor) const;
  private:
     RobotomyRequestForm(void);
+    std::string _target;
 };
 
 #endif  // EX02_INCLUDES_ROBOTOMYREQUESTFORM_HPP_

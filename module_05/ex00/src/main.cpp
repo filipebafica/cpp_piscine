@@ -9,10 +9,7 @@ int main(void) {
         try {
             Bureaucrat b("foo", 0);
         }
-        catch(Bureaucrat::GradeTooHighException& e) {
-            std::cout << e.what() << std::endl;
-        }
-        catch(Bureaucrat::GradeTooLowException& e) {
+        catch(std::exception& e) {
             std::cout << e.what() << std::endl;
         }
     }
@@ -21,10 +18,7 @@ int main(void) {
         try {
             Bureaucrat b("foo", 151);
         }
-        catch(Bureaucrat::GradeTooHighException& e) {
-            std::cout << e.what() << std::endl;
-        }
-        catch(Bureaucrat::GradeTooLowException& e) {
+        catch(std::exception& e) {
             std::cout << e.what() << std::endl;
         }
     }
@@ -35,10 +29,7 @@ int main(void) {
             std::cout << b << std::endl;
             b.incrementGrade();
         }
-        catch(Bureaucrat::GradeTooHighException& e) {
-            std::cout << e.what() << std::endl;
-        }
-        catch(Bureaucrat::GradeTooLowException& e) {
+        catch(std::exception& e) {
             std::cout << e.what() << std::endl;
         }
     }
@@ -49,10 +40,7 @@ int main(void) {
             std::cout << b << std::endl;
             b.decrementGrade();
         }
-        catch(Bureaucrat::GradeTooHighException& e) {
-            std::cout << e.what() << std::endl;
-        }
-        catch(Bureaucrat::GradeTooLowException& e) {
+        catch(std::exception& e) {
             std::cout << e.what() << std::endl;
         }
     }
@@ -64,10 +52,7 @@ int main(void) {
             b.incrementGrade();
             std::cout << b << std::endl;
         }
-        catch(Bureaucrat::GradeTooHighException& e) {
-            std::cout << e.what() << std::endl;
-        }
-        catch(Bureaucrat::GradeTooLowException& e) {
+        catch(std::exception& e) {
             std::cout << e.what() << std::endl;
         }
     }
@@ -79,10 +64,7 @@ int main(void) {
             b.decrementGrade();
             std::cout << b << std::endl;
         }
-        catch(Bureaucrat::GradeTooHighException& e) {
-            std::cout << e.what() << std::endl;
-        }
-        catch(Bureaucrat::GradeTooLowException& e) {
+        catch(std::exception& e) {
             std::cout << e.what() << std::endl;
         }
     }

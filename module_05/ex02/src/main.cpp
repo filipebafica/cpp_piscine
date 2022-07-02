@@ -2,55 +2,92 @@
 
 #include <iostream>
 #include "../includes/Bureaucrat.hpp"
-#include "../includes/Form.hpp"
+#include "../includes/AForm.hpp"
+#include "../includes/PresidentialPardonForm.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
+#include "../includes/ShrubberyCreationForm.hpp"
 
 int main(void) {
-    {
-        try {
-            std::cout << std::endl << "[CREATING A BUREAUCRATE WITH GRADE 10 AND A FORM WITH GRADE 1]" << std::endl;
-            Bureaucrat b("foo", 10);
-            Form f("bar", 1, 1);
-            std::cout << b << std::endl;
-            std::cout << f << std::endl;
-
-            std::cout << std::endl << "[TRYING TO SIGN FORM]" << std::endl;
-            b.signForm(f);
+    {   std::cout << std::endl << "[CREATING A BUREAUCRATE 'BAR' WITH GRADE 150]" << std::endl;
+        Bureaucrat b("bar", 150);
+        {
+            try {
+                std::cout << std::endl << "[TRYING TO SIGN 'SHRUBBERY CREATION FORM']" << std::endl;
+                AForm *f = new ShrubberyCreationForm("foo");
+                b.signForm(f);
+                b.executeForm(*f);
+                delete f;
+            }
+            catch(std::exception& e) {
+                std::cout << e.what() << std::endl;
+            }
         }
-        catch(Bureaucrat::GradeTooHighException& e) {
-            std::cout << e.what() << std::endl;
+        {
+            try {
+                std::cout << std::endl << "[TRYING TO SIGN 'ROBOTO MY REQUEST FORM']" << std::endl;
+                AForm *f = new RobotomyRequestForm("foo");
+                b.signForm(f);
+                b.executeForm(*f);
+                delete f;
+            }
+            catch(std::exception& e) {
+                std::cout << e.what() << std::endl;
+            }
         }
-        catch(Bureaucrat::GradeTooLowException& e) {
-            std::cout << e.what() << std::endl;
-        }
-        catch(Form::GradeTooHighException& e) {
-            std::cout << e.what() << std::endl;
-        }
-        catch(Form::GradeTooLowException& e) {
-            std::cout << e.what() << std::endl;
+        {
+            try {
+                std::cout << std::endl << "[TRYING TO SIGN 'PRESIDENTIAL PARDON FORM']" << std::endl;
+                AForm *f = new PresidentialPardonForm("foo");
+                b.signForm(f);
+                b.executeForm(*f);
+                delete f;
+            }
+            catch(std::exception& e) {
+                std::cout << e.what() << std::endl;
+            }
         }
     }
     {
-        try {
-            std::cout << std::endl << "[CREATING A BUREAUCRATE WITH GRADE 10 AND A FORM WITH GRADE 11]" << std::endl;
-            Bureaucrat b("foo", 10);
-            Form f("bar", 11, 11);
-            std::cout << b << std::endl;
-            std::cout << f << std::endl;
-
-            std::cout << std::endl << "[TRYING TO SIGN FORM]" << std::endl;
-            b.signForm(f);
+        std::cout << std::endl << "[CREATING A BUREAUCRATE 'BAR' WITH GRADE 1]" << std::endl;
+        Bureaucrat b("bar", 1);
+        {
+            try {
+                std::cout << std::endl << "[TRYING TO SIGN 'SHRUBBERY CREATION FORM']" << std::endl;
+                AForm *f = new ShrubberyCreationForm("foo");
+                b.signForm(f);
+                b.executeForm(*f);
+                delete f;
+            }
+            catch(std::exception& e) {
+                std::cout << e.what() << std::endl;
+            }
         }
-        catch(Bureaucrat::GradeTooHighException& e) {
-            std::cout << e.what() << std::endl;
+        {
+            try {
+                std::cout << std::endl << "[TRYING TO SIGN 'ROBOTO MY REQUEST FORM']" << std::endl;
+                AForm *f = new RobotomyRequestForm("foo");
+                b.signForm(f);
+                b.executeForm(*f);
+                b.executeForm(*f);
+                b.executeForm(*f);
+                b.executeForm(*f);
+                delete f;
+            }
+            catch(std::exception& e) {
+                std::cout << e.what() << std::endl;
+            }
         }
-        catch(Bureaucrat::GradeTooLowException& e) {
-            std::cout << e.what() << std::endl;
-        }
-        catch(Form::GradeTooHighException& e) {
-            std::cout << e.what() << std::endl;
-        }
-        catch(Form::GradeTooLowException& e) {
-            std::cout << e.what() << std::endl;
+        {
+            try {
+                std::cout << std::endl << "[TRYING TO SIGN 'PRESIDENTIAL PARDON FORM']" << std::endl;
+                AForm *f = new PresidentialPardonForm("foo");
+                b.signForm(f);
+                b.executeForm(*f);
+                delete f;
+            }
+            catch(std::exception& e) {
+                std::cout << e.what() << std::endl;
+            }
         }
     }
     return (0);

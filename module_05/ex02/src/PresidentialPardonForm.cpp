@@ -3,15 +3,16 @@
 #include <iostream>
 #include "../includes/PresidentialPardonForm.hpp"
 #include "../includes/Bureaucrat.hpp"
-#include "../includes/Form.hpp"
+#include "../includes/AForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void) : Form("PresidentialPardonForm", 25, 5) {
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialPardonForm", 25, 5) {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const Form& target) : Form("PresidentialPardonForm", 25, 5) {
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 25, 5) {
+    this->_target = target;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src) : Form("PresidentialPardonForm", src.getSignGrade(), src.getExecuteGrade()) {
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src) : AForm("PresidentialPardonForm", src.getSignGrade(), src.getExecuteGrade()) {
     *this = src;
 }
 
@@ -24,4 +25,13 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(void) {
+}
+
+void PresidentialPardonForm::execute(Bureaucrat const& executor) const {
+    if (this->getStatus() == false)
+        throw AForm::NonSignedException();
+    if (this->getExecuteGrade() < executor.getGrade())
+        throw AForm::GradeTooLowException();
+
+    std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
