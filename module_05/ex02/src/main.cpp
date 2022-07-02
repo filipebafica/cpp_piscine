@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include "../includes/Bureaucrat.hpp"
-#include "../includes/AForm.hpp"
+#include "../includes/Form.hpp"
 #include "../includes/PresidentialPardonForm.hpp"
 #include "../includes/RobotomyRequestForm.hpp"
 #include "../includes/ShrubberyCreationForm.hpp"
@@ -13,7 +13,7 @@ int main(void) {
         {
             try {
                 std::cout << std::endl << "[TRYING TO SIGN 'SHRUBBERY CREATION FORM']" << std::endl;
-                AForm *f = new ShrubberyCreationForm("foo");
+                Form *f = new ShrubberyCreationForm("foo");
                 b.signForm(f);
                 b.executeForm(*f);
                 delete f;
@@ -25,7 +25,7 @@ int main(void) {
         {
             try {
                 std::cout << std::endl << "[TRYING TO SIGN 'ROBOTO MY REQUEST FORM']" << std::endl;
-                AForm *f = new RobotomyRequestForm("foo");
+                Form *f = new RobotomyRequestForm("foo");
                 b.signForm(f);
                 b.executeForm(*f);
                 delete f;
@@ -37,7 +37,7 @@ int main(void) {
         {
             try {
                 std::cout << std::endl << "[TRYING TO SIGN 'PRESIDENTIAL PARDON FORM']" << std::endl;
-                AForm *f = new PresidentialPardonForm("foo");
+                Form *f = new PresidentialPardonForm("foo");
                 b.signForm(f);
                 b.executeForm(*f);
                 delete f;
@@ -53,7 +53,7 @@ int main(void) {
         {
             try {
                 std::cout << std::endl << "[TRYING TO SIGN 'SHRUBBERY CREATION FORM']" << std::endl;
-                AForm *f = new ShrubberyCreationForm("foo");
+                Form *f = new ShrubberyCreationForm("foo");
                 b.signForm(f);
                 b.executeForm(*f);
                 delete f;
@@ -65,7 +65,7 @@ int main(void) {
         {
             try {
                 std::cout << std::endl << "[TRYING TO SIGN 'ROBOTO MY REQUEST FORM']" << std::endl;
-                AForm *f = new RobotomyRequestForm("foo");
+                Form *f = new RobotomyRequestForm("foo");
                 b.signForm(f);
                 b.executeForm(*f);
                 b.executeForm(*f);
@@ -80,7 +80,7 @@ int main(void) {
         {
             try {
                 std::cout << std::endl << "[TRYING TO SIGN 'PRESIDENTIAL PARDON FORM']" << std::endl;
-                AForm *f = new PresidentialPardonForm("foo");
+                Form *f = new PresidentialPardonForm("foo");
                 b.signForm(f);
                 b.executeForm(*f);
                 delete f;

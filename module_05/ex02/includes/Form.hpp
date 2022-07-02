@@ -1,6 +1,6 @@
 // Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
-#ifndef EX02_INCLUDES_AFORM_HPP_
-#define EX02_INCLUDES_AFORM_HPP_
+#ifndef EX02_INCLUDES_FORM_HPP_
+#define EX02_INCLUDES_FORM_HPP_
 
 #include <string>
 #include <exception>
@@ -8,12 +8,12 @@
 
 class Bureaucrat;
 
-class AForm {
+class Form {
  public:
-    AForm(const std::string& name, int signGrade, int executeGrade);
-    AForm(const AForm& src);
-    AForm& operator=(const AForm& rhs);
-    virtual ~AForm(void);
+    Form(const std::string& name, int signGrade, int executeGrade);
+    Form(const Form& src);
+    Form& operator=(const Form& rhs);
+    virtual ~Form(void);
     std::string getName(void) const;
     void setName(std::string name);
     bool getStatus(void) const;
@@ -38,12 +38,12 @@ class AForm {
     };
 
  private:
-    AForm(void);
+    Form(void);
     std::string const _name;
     bool _status;
     const int _signGrade, _executeGrade;
 };
 
-std::ostream& operator<<(std::ostream& o, const AForm& f);
+std::ostream& operator<<(std::ostream& o, const Form& f);
 
-#endif  // EX02_INCLUDES_AFORM_HPP_
+#endif  // EX02_INCLUDES_FORM_HPP_

@@ -1,6 +1,6 @@
 // Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
-#ifndef EX02_INCLUDES_SHRUBBERYCREATIONFORM_HPP_
-#define EX02_INCLUDES_SHRUBBERYCREATIONFORM_HPP_
+#ifndef EX03_INCLUDES_SHRUBBERYCREATIONFORM_HPP_
+#define EX03_INCLUDES_SHRUBBERYCREATIONFORM_HPP_
 
 #include <string>
 #include "./Form.hpp"
@@ -19,4 +19,4 @@ class ShrubberyCreationForm : public Form {
 };
 
 
-#endif  // EX02_INCLUDES_SHRUBBERYCREATIONFORM_HPP_
+#endif  // EX03_INCLUDES_SHRUBBERYCREATIONFORM_HPP_

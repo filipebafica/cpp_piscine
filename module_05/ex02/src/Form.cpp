@@ -1,28 +1,28 @@
 // Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
 
 #include <iostream>
-#include "../includes/AForm.hpp"
+#include "../includes/Form.hpp"
 #include "../includes/Bureaucrat.hpp"
 
-AForm::AForm(void) : _name(""), _status(false), _signGrade(150), _executeGrade(150) {
+Form::Form(void) : _name(""), _status(false), _signGrade(150), _executeGrade(150) {
 }
 
-AForm::AForm(const std::string& name, int signGrade, int executeGrade) :
+Form::Form(const std::string& name, int signGrade, int executeGrade) :
                                                                         _name(name),
                                                                         _status(false),
                                                                         _signGrade(signGrade),
                                                                          _executeGrade(executeGrade) {
     if (signGrade < 1 || executeGrade < 1)
-        throw AForm::GradeTooHighException();
+        throw Form::GradeTooHighException();
     if (signGrade > 150 || executeGrade > 150)
-        throw AForm::GradeTooLowException();
+        throw Form::GradeTooLowException();
 }
 
-AForm::AForm(const AForm& src) : _name(""), _signGrade(src.getSignGrade()), _executeGrade(src.getExecuteGrade()) {
+Form::Form(const Form& src) : _name(""), _signGrade(src.getSignGrade()), _executeGrade(src.getExecuteGrade()) {
     *this = src;
 }
 
-AForm& AForm::operator=(const AForm& rhs) {
+Form& Form::operator=(const Form& rhs) {
     const_cast<std::string&>(this->_name) = rhs.getName();
     const_cast<int&>(this->_signGrade) = rhs.getSignGrade();
     const_cast<int&>(this->_executeGrade) = rhs.getSignGrade();
@@ -30,48 +30,48 @@ AForm& AForm::operator=(const AForm& rhs) {
     return (*this);
 }
 
-AForm::~AForm(void) {
+Form::~Form(void) {
 }
 
-std::string AForm::getName(void) const {
+std::string Form::getName(void) const {
     return (this->_name);
 }
 
-void AForm::setName(std::string name) {
+void Form::setName(std::string name) {
     const_cast<std::string&>(this->_name) = name;
 }
 
-bool AForm::getStatus(void) const {
+bool Form::getStatus(void) const {
     return (this->_status);
 }
 
-void AForm::setStatus(bool status) {
+void Form::setStatus(bool status) {
     const_cast<bool&>(this->_status) = status;
 }
 
-int AForm::getSignGrade(void) const {
+int Form::getSignGrade(void) const {
     return (this->_signGrade);
 }
 
-void AForm::setSignGrade(int signGrade) {
+void Form::setSignGrade(int signGrade) {
     const_cast<int&>(this->_signGrade) = signGrade;
 }
 
-int AForm::getExecuteGrade(void) const {
+int Form::getExecuteGrade(void) const {
     return (this->_executeGrade);
 }
 
-void AForm::setExecuteGrade(int executeGrade) {
+void Form::setExecuteGrade(int executeGrade) {
     const_cast<int&>(this->_executeGrade) = executeGrade;
 }
 
-void AForm::beSigned(Bureaucrat b) {
+void Form::beSigned(Bureaucrat b) {
     if (this->_signGrade < b.getGrade())
-        throw AForm::GradeTooLowException();
+        throw Form::GradeTooLowException();
     this->_status = true;
 }
 
-std::ostream& operator<<(std::ostream& o, const AForm& f) {
+std::ostream& operator<<(std::ostream& o, const Form& f) {
     o << "form name: "
       << f.getName()
       << ". "
@@ -84,14 +84,14 @@ std::ostream& operator<<(std::ostream& o, const AForm& f) {
     return (o);
 }
 
-const char* AForm::GradeTooHighException::what() const throw() {
+const char* Form::GradeTooHighException::what() const throw() {
     return ("the grade is too high");
 }
 
-const char* AForm::GradeTooLowException::what() const throw() {
+const char* Form::GradeTooLowException::what() const throw() {
     return ("the grade is too low");
 }
 
-const char* AForm::NonSignedException::what() const throw() {
+const char* Form::NonSignedException::what() const throw() {
     return ("the form is not signed");
 }

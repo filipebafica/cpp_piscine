@@ -1,6 +1,6 @@
 // Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
-#ifndef EX02_INCLUDES_BUREAUCRAT_HPP_
-#define EX02_INCLUDES_BUREAUCRAT_HPP_
+#ifndef EX03_INCLUDES_BUREAUCRAT_HPP_
+#define EX03_INCLUDES_BUREAUCRAT_HPP_
 
 #include <string>
 #include <exception>
@@ -37,4 +37,4 @@ class Bureaucrat {
 
 std::ostream& operator<<(std::ostream& o, const Bureaucrat& b);
 
-#endif  // EX02_INCLUDES_BUREAUCRAT_HPP_
+#endif  // EX03_INCLUDES_BUREAUCRAT_HPP_
