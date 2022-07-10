@@ -1,7 +1,7 @@
 # Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
 NAME = convert
 INCLUDES = ./includes/
-SOURCE = main.cpp
+SOURCE = main.cpp Convert.cpp
 
 OBJECTS_DIR = ./objects/
 OBJECTS = $(SOURCE:%.cpp=$(OBJECTS_DIR)%.o)

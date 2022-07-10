@@ -1,43 +1,18 @@
 // Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
 
 #include <ctype.h>
-#include <math.h>
-#include <cstring>
+#include <stdlib.h>
 #include <iostream>
+#include "../includes/Convert.hpp"
 
-bool isFloatType(std::string argStr) {
-    std::string::iterator it;
-
-    // check if there is only 'digit' '.' 'f'
-    for (it = argStr.begin(); it != argStr.end(); ++it) {
-        if (!isdigit(*it) && *it != '.' && *it != 'f')
-            return (false);
-    }
-    // check if string ends with a f
-    if (*(argStr.end() - 1) != 'f')
-        return (false);
-    // check if there is more than '.' charactere
-    if (argStr.find_first_of('.') != argStr.find_last_of('.'))
-        return (false);
-    return (true);
-}
-
-bool isIntType(std::string argStr) {
+bool isPrintable(std::string argStr) {
     std::string::iterator it;
 
     for (it = argStr.begin(); it != argStr.end(); ++it) {
-        if (!isdigit(*it))
+        if (!isprint(*it))
             return (false);
     }
     return (true);
-}
-
-void getTypeAndConvert(char *s) {
-    std::string argStr;
-
-    argStr = s;
-    isFloatType(argStr);
-    std::cout << isFloatType(argStr) << std::endl;
 }
 
 int main(int argc, char **argv) {
@@ -45,6 +20,18 @@ int main(int argc, char **argv) {
         std::cerr << "Bad number of arguments" << std::endl;
         return (1);
     }
-    getTypeAndConvert(argv[1]);
+    if (!isPrintable(argv[1])) {
+        std::cerr << "Argument is not printable" << std::endl;
+        return (1);
+    }
+    Convert convert(argv[1]);
+    if (convert.isCharType() == true)
+        convert.convertAndPrint(convert.fromStringToChar());
+    else if (convert.isIntType() == true)
+        convert.convertAndPrint(convert.fromStringToInt());
+    else if (convert.isFloatType() == true)
+        convert.convertAndPrint(convert.fromStringToFloat());
+    else if (convert.isDoubleType() == true)
+        convert.convertAndPrint(convert.fromStringToDouble());
     return (0);
 }
