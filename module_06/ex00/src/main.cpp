@@ -17,7 +17,7 @@ bool isPrintable(std::string argStr) {
 
 int main(int argc, char **argv) {
     if (argc != 2) {
-        std::cerr << "Bad number of arguments" << std::endl;
+        std::cerr << "Pass as argument a literal such as: a \\ 1.1f \\ 1.1 \\ 1" << std::endl;
         return (1);
     }
     if (!isPrintable(argv[1])) {

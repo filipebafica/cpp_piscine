@@ -32,11 +32,12 @@ bool Convert::isDoubleType(void) {
     std::string::iterator it;
 
     // checl if == Not a number
-    if (this->_input == "nan")
+    if (this->_input == "nan" || this->_input == "inf"
+    || this->_input == "+inf" || this->_input == "-inf")
         return (true);
     // check if there is only (digit) && ('.')
     for (it = this->_input.begin(); it != this->_input.end(); ++it) {
-        if (!isdigit(*it) && *it != '.')
+        if (!isdigit(*it) && *it != '.' && *it != '-' && *it != '+')
             return (false);
     }
     // check if there is more than ('.') charactere
@@ -49,11 +50,12 @@ bool Convert::isFloatType(void) {
     std::string::iterator it;
 
     // checl if == Not a number
-    if (this->_input == "nan")
+    if (this->_input == "nanf" || this->_input == "inff"
+    || this->_input == "+inff" || this->_input == "-inff")
         return (true);
     // check if there is only (digit) && ('.') && (f)
     for (it = this->_input.begin(); it != this->_input.end(); ++it) {
-        if (!isdigit(*it) && *it != '.' && *it != 'f')
+        if (!isdigit(*it) && *it != '.' && *it != 'f' && *it != '-' && *it != '+')
             return (false);
     }
     // check if string ends with a f
@@ -69,7 +71,7 @@ bool Convert::isIntType(void) {
     std::string::iterator it;
 
     for (it = this->_input.begin(); it != this->_input.end(); ++it) {
-        if (!isdigit(*it))
+        if (!isdigit(*it) && *it != '-' && *it != '+')
             return (false);
     }
     return (true);
@@ -79,7 +81,7 @@ bool Convert::isCharType(void) {
     std::string::iterator it;
 
     for (it = this->_input.begin(); it != this->_input.end(); ++it) {
-        if (!isalpha(*it))
+        if (this->_input.length() != 1 || !isalpha(*it))
             return (false);
     }
     return (true);
@@ -137,8 +139,13 @@ void Convert::convertSpecialFloat(float literal) {
 }
 
 void Convert::printChar(char literal) {
-    // if (this->_input.length() != 1)
-    //     std::cout << "char: impossible" << std::endl;
+    if (this->_input == "nanf" || this->_input == "inff"
+    || this->_input == "+inff" || this->_input == "-inff"
+    || this->_input == "nan" || this->_input == "inf"
+    || this->_input == "+inf" || this->_input == "-inf") {
+        std::cout << "char: impossible" << std::endl;
+        return;
+    }
     if (!isprint(literal))
         std::cout << "char: Non displayable" << std::endl;
     else
@@ -146,10 +153,13 @@ void Convert::printChar(char literal) {
 }
 
 void Convert::printInt(int literal) {
-    // if (this->_input.length() != 1) {
-    //     std::cout << "int: impossible" << std::endl;
-    //     return;
-    // }
+    if (this->_input == "nanf" || this->_input == "inff"
+    || this->_input == "+inff" || this->_input == "-inff"
+    || this->_input == "nan" || this->_input == "inf"
+    || this->_input == "+inf" || this->_input == "-inf") {
+        std::cout << "int: impossible" << std::endl;
+        return;
+    }
     std::cout << "int: " << (literal) << std::endl;
 }
 
