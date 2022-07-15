@@ -5,12 +5,15 @@
 #include <iostream>
 
 template<typename T>
-void swap(T& x, T& y) {
-    T tmp;
+void iter(T* arrAddr, int arrLen, void (*func)(T arrElement)) {
+    for (int i = 0; i < arrLen; ++i) {
+        func(arrAddr[i]);
+    }
+}
 
-    tmp = x;
-    x = y;
-    y = tmp;
+template<typename T>
+void printArrElement(T arrElement) {
+    std::cout << arrElement << std::endl;
 }
 
 #endif  // EX00_INCLUDES_HEADERS_HPP_
