@@ -8,7 +8,7 @@ class Array {
     Array(void);
     Array(unsigned int n);
     Array(const Array& src);
-    Array& operator=(const Array& rhs);
+    Array<T>& operator=(const Array<T>& rhs);
     ~Array(void);
     unsigned int size(void) const;
  private:

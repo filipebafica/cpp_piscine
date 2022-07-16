@@ -4,8 +4,6 @@
 #include "../includes/Array.hpp"
 
 int main(void) {
-    Array<int> arr;
 
-    (void)arr;
     return (0);
 }

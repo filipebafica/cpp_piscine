@@ -13,17 +13,22 @@ Array<T>::Array(unsigned int n) {
 }
 
 template<typename T>
-Array<T>::Array(const Array& src) {
+Array<T>::Array(const Array<T>& src) {
     
 }
 
 template<typename T>
-Array& Array<T>::operator(const Array& rhs) {
-    
+Array<T>& Array<T>::operator=(const Array<T>& rhs) {
+    // use size() to get the array length to copy every elemnt;
 }
 
 template<typename T>
 Array<T>::~Array(void) {
     if (this->_arr != NULL)
         delete this->_arr;
+}
+
+template<typename T>
+unsigned int Array<T>::size(void) const {
+    // sizeof(arr)/sizeof(arr[0])
 }
