@@ -9,10 +9,17 @@ class Array {
     Array(unsigned int n);
     Array(const Array& src);
     Array<T>& operator=(const Array<T>& rhs);
+    T& operator[](int index) const;
     ~Array(void);
-    unsigned int size(void) const;
+    int size(void) const;
+    class OutOfBoundsException : public std::exception {
+     public:
+        const char* what() const throw();
+    };
+
  private:
     T *_arr;
+    int _arrSize;
 };
 
 #include "./Array.tpp"

@@ -2,6 +2,7 @@
 NAME = program
 INCLUDES = ./includes/
 SOURCE = main.cpp
+TEMPLATE = ./includes/Array.tpp
 OBJECTS_DIR = ./objects/
 OBJECTS = $(SOURCE:%.cpp=$(OBJECTS_DIR)%.o)
 VPATH = ./src/
@@ -14,7 +15,7 @@ all: $(NAME)
 $(NAME): $(OBJECTS_DIR) $(OBJECTS) $(LIBFT)
 	@$(CC) $(FLAGS) $(OBJECTS) -o $@
 
-$(OBJECTS_DIR)%.o: %.cpp
+$(OBJECTS_DIR)%.o: %.cpp $(TEMPLATE)
 	@$(CC) -c $(FLAGS) $< -I$(INCLUDES) -o $@
 
 $(OBJECTS_DIR):
