@@ -14,4 +14,7 @@ class Array {
  private:
     T *_arr;
 };
+
+#include "./Array.tpp"
+
 #endif  // EX02_INCLUDES_ARRAY_HPP_

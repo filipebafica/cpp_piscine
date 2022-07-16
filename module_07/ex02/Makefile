@@ -2,7 +2,6 @@
 NAME = program
 INCLUDES = ./includes/
 SOURCE = main.cpp
-
 OBJECTS_DIR = ./objects/
 OBJECTS = $(SOURCE:%.cpp=$(OBJECTS_DIR)%.o)
 VPATH = ./src/
