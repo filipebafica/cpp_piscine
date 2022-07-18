@@ -1,6 +1,6 @@
 // Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
 
-#include "../includes/Array.hpp"
+#include "./Array.hpp"
 
 template<typename T>
 Array<T>::Array(void) : _arr(NULL), _arrSize(0) {
