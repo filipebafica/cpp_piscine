@@ -38,25 +38,25 @@ unsigned int MutantStack<T>::size(void) const {
 
 template<typename T>
 const T& MutantStack<T>::top(void) const {
-    return (this->_stack.back());
+    return (this->_stack.front());
 }
 
 template<typename T>
 void MutantStack<T>::push(const T& val) {
-    this->_stack.push_back(val);
+    this->_stack.push_front(val);
 }
 
 template<typename T>
 void MutantStack<T>::pop(void) {
-    this->_stack.pop_back();
+    this->_stack.pop_front();
 }
 
 template<typename T>
 typename std::deque<T>::iterator MutantStack<T>::begin(void) {
-    return (this->_stack.end());
+    return (this->_stack.begin());
 }
 
 template<typename T>
 typename std::deque<T>::iterator MutantStack<T>::end(void) {
-    return (this->_stack.begin());
+    return (this->_stack.end());
 }
