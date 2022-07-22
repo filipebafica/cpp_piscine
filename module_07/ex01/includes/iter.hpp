@@ -1,6 +1,6 @@
 // Copyright (c) 2022 Filipe Báfica, Licensed under the MIT License.
-#ifndef EX00_INCLUDES_ITER_HPP_
-#define EX00_INCLUDES_ITER_HPP_
+#ifndef EX01_INCLUDES_ITER_HPP_
+#define EX01_INCLUDES_ITER_HPP_
 
 #include <iostream>
 
@@ -16,4 +16,4 @@ void printArrElement(T arrElement) {
     std::cout << arrElement << std::endl;
 }
 
-#endif  // EX00_INCLUDES_ITER_HPP_
+#endif  // EX01_INCLUDES_ITER_HPP_
