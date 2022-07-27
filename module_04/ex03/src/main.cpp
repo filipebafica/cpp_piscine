@@ -38,10 +38,10 @@ int main(void) {
     me->use(0, *bob);
     me->use(1, *bob);
 
-    std::cout << std::endl << "[DESTROYIN CHARACTERS AND INVENTORY]" << std::endl;
+    std::cout << std::endl << "[DESTROYING CHARACTERS AND INVENTORY]" << std::endl;
     delete bob;
     delete me;
-    std::cout << std::endl << "[DESTROYIN BOOK OF MATERIAS]" << std::endl;
+    std::cout << std::endl << "[DESTROYING BOOK OF MATERIAS]" << std::endl;
     delete src;
     return (0);
 }
