@@ -13,6 +13,5 @@ int main(void) {
     c->makeSound();
     delete d;
     delete c;
-    // Animal a();
     return (0);
 }

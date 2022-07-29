@@ -4,22 +4,22 @@
 #include "../includes/WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal(void) : type("WrongAnimal") {
-    std::cout << "Default constructor called for an WrongAnimal object" << std::endl;
+    std::cout << "Default constructor called for a WrongAnimal object" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& src) {
-    std::cout << "Copy constructor called for an WrongAnimal object" << std::endl;
+    std::cout << "Copy constructor called for a WrongAnimal object" << std::endl;
     *this = src;
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& rhs) {
-    std::cout << "Copy assignment operator called for an WrongAnimal object" << std::endl;
+    std::cout << "Copy assignment operator called for a WrongAnimal object" << std::endl;
     this->type = rhs.type;
     return (*this);
 }
 
 WrongAnimal::~WrongAnimal(void) {
-    std::cout << "Default destructor called for an WrongAnimal object" << std::endl;
+    std::cout << "Default destructor called for a WrongAnimal object" << std::endl;
 }
 
 std::string WrongAnimal::getType(void) const {

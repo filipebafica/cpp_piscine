@@ -19,6 +19,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name("") {
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs) {
+    std::cout << "hey you!" << std::endl;
     const_cast<std::string&>(this->_name) = rhs.getName();
     this->_grade = rhs.getGrade();
     return (*this);

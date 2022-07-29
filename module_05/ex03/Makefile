@@ -26,5 +26,6 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f Bender_shrubbery
 
 re: fclean all
