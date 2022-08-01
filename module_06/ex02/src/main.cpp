@@ -10,17 +10,17 @@
 
 void identify(Base& p) {
     try {
-        dynamic_cast<A&>(p);
+        A a = dynamic_cast<A&>(p);
         std::cout << "'Base& p' is a class of type A" << std::endl;
     }
     catch (std::exception& e) {}
     try {
-        dynamic_cast<B&>(p);
+        B b = dynamic_cast<B&>(p);
         std::cout << "'Base& p' is a class of type B" << std::endl;
     }
     catch (std::exception& e) {}
     try {
-        dynamic_cast<C&>(p);
+        C c = dynamic_cast<C&>(p);
         std::cout << "'Base& p' is a class of type C" << std::endl;
     }
     catch (std::exception& e) {}
@@ -36,7 +36,7 @@ void identify(Base* p) {
 }
 
 Base *generate(void) {
-    Base *randomInstance;
+    Base *randomInstance = NULL;
     int randomNumber;
     srand(time(NULL));
 
@@ -62,10 +62,10 @@ Base *generate(void) {
 
 int main(void) {
     Base *p;
-    Base p2 = B();
 
     p = generate();
     identify(p);
     identify(*p);
+    delete p;
     return (0);
 }

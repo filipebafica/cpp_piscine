@@ -24,8 +24,8 @@ int main(void) {
 
     std::cout << "data memberOne: " << data.memberOne << std::endl
               << "data memberTwo: " << data.memberTwo << std::endl
-              << "dataPtr memberOne: " << dataPtr->memberOne << std::endl
-              << "dataPtr memberTwo: " << dataPtr->memberTwo << std::endl;
+              << "Serialized/Deserialized memberOne: " << dataPtr->memberOne << std::endl
+              << "Serialized/Deserialized memberTwo: " << dataPtr->memberTwo << std::endl;
 
     return (0);
 }
