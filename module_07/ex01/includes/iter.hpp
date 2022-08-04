@@ -5,14 +5,14 @@
 #include <iostream>
 
 template<typename T>
-void iter(T *arrAddr, int arrLen, void (*func)(T arrElement)) {
+void iter(T *arrAddr, int arrLen, void (*func)(T const & arrElement)) {
     for (int i = 0; i < arrLen; ++i) {
         func(arrAddr[i]);
     }
 }
 
 template<typename T>
-void printArrElement(T arrElement) {
+void printArrElement(T& arrElement) {
     std::cout << arrElement << std::endl;
 }
 
