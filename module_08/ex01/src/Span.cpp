@@ -3,6 +3,8 @@
 #include "../includes/Span.hpp"
 #include <iostream>
 #include <iterator>
+#include <numeric>
+#include <algorithm>
 
 Span::Span(void) {
 }
@@ -58,7 +60,10 @@ int Span::shortestSpan() {
     else if (this->_container.size() == 1)
         throw Span::OnlyOneNumberStoredException();
 
-    return(*++this->_container.begin() - *this->_container.begin());
+    int tmp[this->_container.size()];
+    std::adjacent_difference(this->_container.begin(), this->_container.end(), tmp);
+
+    return(*std::min_element(tmp, tmp + this->_container.size()));
 }
 
 int Span::longestSpan() {
