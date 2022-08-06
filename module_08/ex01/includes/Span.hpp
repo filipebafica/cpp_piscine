@@ -13,10 +13,10 @@ class Span {
     ~Span(void);
     unsigned int getN(void) const;
     std::multiset<int> getContainer(void) const;
-    std::set<int>::iterator getFirst(void) const;
-    std::set<int>::iterator getLast(void) const;
+    std::multiset<int>::iterator getFirst(void) const;
+    std::multiset<int>::iterator getLast(void) const;
     void addNumber(int number);
-    void addNumber(std::set<int>::iterator first, std::set<int>::iterator last);
+    void addNumber(std::multiset<int>::iterator first, std::multiset<int>::iterator last);
     int shortestSpan(void);
     int longestSpan(void);
     class NoNumberStoredException : public std::exception {

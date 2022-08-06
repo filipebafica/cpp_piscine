@@ -32,11 +32,11 @@ std::multiset<int> Span::getContainer(void) const {
     return (this->_container);
 }
 
-std::set<int>::iterator Span::getFirst(void) const {
+std::multiset<int>::iterator Span::getFirst(void) const {
     return (this->_container.begin());
 }
 
-std::set<int>::iterator Span::getLast(void) const {
+std::multiset<int>::iterator Span::getLast(void) const {
     return (this->_container.end());
 }
 
@@ -46,7 +46,7 @@ void Span::addNumber(int number) {
     this->_container.insert(number);
 }
 
-void Span::addNumber(std::set<int>::iterator first, std::set<int>::iterator last) {
+void Span::addNumber(std::multiset<int>::iterator first, std::multiset<int>::iterator last) {
     if (this->_container.size() >= this->_n)
         throw Span::MaxNumberStoredException();
     this->_container.insert(first, last);

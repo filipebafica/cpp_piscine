@@ -12,7 +12,7 @@ MAKEFLAGS = --no-print-directory
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS_DIR) $(OBJECTS) $(LIBFT)
+$(NAME): $(OBJECTS_DIR) $(OBJECTS)
 	@$(CC) $(FLAGS) $(OBJECTS) -o $@
 
 $(OBJECTS_DIR)%.o: %.cpp $(TEMPLATE)
