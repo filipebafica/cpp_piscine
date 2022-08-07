@@ -11,7 +11,7 @@ int main(void) {
             s1.addNumber(i);
 
         std::cout << "first: " << *s1.getFirst() << std::endl;
-        std::cout << "last: " << *s1.getLast() << std::endl;
+        std::cout << "last: " << *--s1.getLast() << std::endl;
     }
     {
         std::cout << "[ADDING 10 000 NUMBERS WITH RANGE OF ITERATORS]\n";
@@ -22,7 +22,7 @@ int main(void) {
         Span s2(2);
         s2.addNumber(s1.getFirst(), s1.getLast());
         std::cout << "first: " << *s2.getFirst() << std::endl;
-        std::cout << "last: " << *s2.getLast() << std::endl;
+        std::cout << "last: " << *--s2.getLast() << std::endl;
     }
     {
         std::cout << "[TRAYING TO ADD MORE NUMBERS THAN THE SIZE LIMIT]\n";
@@ -36,9 +36,9 @@ int main(void) {
         }
     }
     {
-        std::cout << "[SHORT SPAN]\n";
-        Span s1(10000);
-        for (int i = 0; i < 10000; ++i)
+        std::cout << "[SHORTEST SPAN]\n";
+        Span s1(10);
+        for (int i = 0; i < 10; ++i)
             s1.addNumber(i);
 
         std::cout << s1.shortestSpan() << std::endl;

@@ -63,7 +63,7 @@ int Span::shortestSpan() {
     int tmp[this->_container.size()];
     std::adjacent_difference(this->_container.begin(), this->_container.end(), tmp);
 
-    return(*std::min_element(tmp, tmp + this->_container.size()));
+    return(*std::min_element(tmp + 1, tmp + this->_container.size()));
 }
 
 int Span::longestSpan() {
