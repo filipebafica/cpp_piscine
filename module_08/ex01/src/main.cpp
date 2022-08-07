@@ -19,9 +19,9 @@ int main(void) {
         for (int i = 0; i < 10000; ++i)
             s1.addNumber(i);
 
-        Span s2(2);
-        s2.addNumber(s1.getFirst(), s1.getLast());
-        std::cout << "first: " << *s2.getFirst() << std::endl;
+        Span s2(s1.getN());
+        s2.addNumber(s1.getFirst(), s1.getLast(), s1.getN());
+        std::cout << "first: " << *(++s2.getFirst()) << std::endl;
         std::cout << "last: " << *--s2.getLast() << std::endl;
     }
     {

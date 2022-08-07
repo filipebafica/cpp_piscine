@@ -16,7 +16,7 @@ class Span {
     std::multiset<int>::iterator getFirst(void) const;
     std::multiset<int>::iterator getLast(void) const;
     void addNumber(int number);
-    void addNumber(std::multiset<int>::iterator first, std::multiset<int>::iterator last);
+    void addNumber(std::multiset<int>::iterator first, std::multiset<int>::iterator last, unsigned int N);
     int shortestSpan(void);
     int longestSpan(void);
     class NoNumberStoredException : public std::exception {

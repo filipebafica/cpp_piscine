@@ -48,8 +48,8 @@ void Span::addNumber(int number) {
     this->_container.insert(number);
 }
 
-void Span::addNumber(std::multiset<int>::iterator first, std::multiset<int>::iterator last) {
-    if (this->_container.size() >= this->_n)
+void Span::addNumber(std::multiset<int>::iterator first, std::multiset<int>::iterator last, unsigned int N) {
+    if (this->_n < N)
         throw Span::MaxNumberStoredException();
     this->_container.insert(first, last);
 }
